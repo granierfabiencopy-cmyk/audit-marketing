@@ -3,771 +3,226 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Diagnostic Marketing — Votre entreprise</title>
+<title>Audit Marketing — Fabien Granier · Pilote Marketing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
-
 :root {
-  --noir: #0d0d0d;
-  --gris-fonce: #1e1e1e;
-  --gris: #6b7280;
-  --gris-clair: #f3f4f6;
-  --blanc: #ffffff;
-  --bleu: #2563eb;
-  --bleu-clair: #eff6ff;
-  --vert: #059669;
-  --vert-clair: #ecfdf5;
+  --cream: #faf6f1;
+  --cream-deep: #f3ece3;
+  --warm: #f5efe6;
+  --charcoal: #2c2a27;
+  --charcoal-light: #5c5750;
+  --text: #2c2a27;
+  --text-light: #7a7568;
+  --accent: #c06a35;
+  --accent-hover: #a8582b;
+  --accent-soft: #e8a06a;
+  --green: #4a7c59;
+  --green-soft: #e8f0ea;
+  --red-soft: #f5e6e4;
+  --red: #a04030;
   --orange: #d97706;
-  --orange-clair: #fffbeb;
-  --rouge: #dc2626;
-  --rouge-clair: #fef2f2;
-  --violet: #7c3aed;
-  --violet-clair: #f5f3ff;
-  --border: #e5e7eb;
+  --orange-soft: #fffbeb;
+  --dark: #1e1d1b;
+  --border: #e5ddd3;
+  --card-bg: #ffffff;
+  --radius: 16px;
+  --radius-sm: 10px;
+  --shadow: 0 2px 8px rgba(44,42,39,.06), 0 8px 24px rgba(44,42,39,.04);
+  --font-heading: 'Lora', Georgia, serif;
+  --font-body: 'Nunito', -apple-system, sans-serif;
 }
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-  font-family: 'Inter', sans-serif;
-  background: #f9fafb;
-  color: var(--noir);
-  min-height: 100vh;
-}
-
-/* HERO */
-.hero {
-  background: var(--noir);
-  padding: 48px 20px 36px;
-  text-align: center;
-}
-
-.hero-badge {
-  display: inline-block;
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.15);
-  color: rgba(255,255,255,0.7);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  padding: 5px 14px;
-  border-radius: 20px;
-  margin-bottom: 16px;
-}
-
-.hero h1 {
-  font-family: 'Syne', sans-serif;
-  font-size: 32px;
-  font-weight: 800;
-  color: var(--blanc);
-  line-height: 1.15;
-  margin-bottom: 12px;
-}
-
-.hero h1 span {
-  background: linear-gradient(90deg, #60a5fa, #a78bfa);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.hero-sub {
-  font-size: 14px;
-  color: rgba(255,255,255,0.55);
-  max-width: 500px;
-  margin: 0 auto;
-  line-height: 1.6;
-}
-
-.hero-meta {
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-  margin-top: 20px;
-  flex-wrap: wrap;
-}
-
-.hero-meta span {
-  font-size: 12px;
-  color: rgba(255,255,255,0.45);
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-/* PROGRESS */
-.progress-wrap {
-  background: var(--noir);
-  padding: 0 20px 20px;
-}
-
-.steps {
-  display: flex;
-  gap: 4px;
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-.step {
-  flex: 1;
-  height: 3px;
-  background: rgba(255,255,255,0.1);
-  border-radius: 2px;
-  transition: background 0.3s;
-}
-
-.step.done { background: #60a5fa; }
-.step.active { background: #a78bfa; }
-
-/* CONTAINER */
-.container {
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 28px 16px 100px;
-}
-
-/* CARD SECTION */
-.card {
-  background: var(--blanc);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 28px 24px;
-  margin-bottom: 20px;
-  display: none;
-  animation: slideUp 0.35s ease;
-}
-
-.card.active { display: block; }
-
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.card-header {
-  margin-bottom: 24px;
-}
-
-.card-tag {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--bleu);
-  margin-bottom: 6px;
-}
-
-.card-title {
-  font-family: 'Syne', sans-serif;
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--noir);
-  line-height: 1.2;
-}
-
-.card-desc {
-  font-size: 13px;
-  color: var(--gris);
-  margin-top: 6px;
-  line-height: 1.55;
-}
-
-/* CHAMPS */
-.field { margin-bottom: 20px; }
-
-label.field-label {
-  display: block;
-  font-size: 13px;
-  font-weight: 600;
-  color: #374151;
-  margin-bottom: 6px;
-  line-height: 1.4;
-}
-
-label.field-label .hint {
-  display: block;
-  font-weight: 400;
-  font-size: 12px;
-  color: var(--gris);
-  margin-top: 2px;
-  font-style: italic;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="url"],
-input[type="number"],
-select,
-textarea {
-  width: 100%;
-  padding: 11px 14px;
-  border: 1.5px solid var(--border);
-  border-radius: 10px;
-  background: #fafafa;
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  color: var(--noir);
-  transition: all 0.2s;
-  -webkit-appearance: none;
-}
-
-input:focus, select:focus, textarea:focus {
-  outline: none;
-  border-color: var(--bleu);
-  background: var(--blanc);
-  box-shadow: 0 0 0 3px rgba(37,99,235,0.08);
-}
-
-textarea { min-height: 88px; resize: vertical; line-height: 1.55; }
-
-select {
-  cursor: pointer;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236b7280' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 12px center;
-  padding-right: 32px;
-}
-
-/* OPTIONS CLIQUABLES */
-.options { display: flex; flex-direction: column; gap: 8px; }
-
-.opt {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  padding: 12px 14px;
-  border: 1.5px solid var(--border);
-  border-radius: 10px;
-  background: #fafafa;
-  cursor: pointer;
-  transition: all 0.18s;
-  font-size: 13px;
-  line-height: 1.4;
-  color: #374151;
-}
-
-.opt:hover { border-color: #93c5fd; background: #f0f7ff; }
-.opt.sel { border-color: var(--bleu); background: var(--bleu-clair); color: var(--bleu); font-weight: 500; }
-
-.opt input {
-  width: 16px;
-  height: 16px;
-  accent-color: var(--bleu);
-  flex-shrink: 0;
-  margin-top: 1px;
-}
-
-/* SLIDER */
-.slider-wrap {
-  margin-top: 4px;
-}
-
-.slider-labels {
-  display: flex;
-  justify-content: space-between;
-  font-size: 11px;
-  color: var(--gris);
-  margin-bottom: 6px;
-}
-
-input[type="range"] {
-  width: 100%;
-  height: 4px;
-  -webkit-appearance: none;
-  background: var(--border);
-  border-radius: 2px;
-  outline: none;
-  cursor: pointer;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: var(--bleu);
-  border: 3px solid white;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
-}
-
-.slider-val {
-  text-align: center;
-  font-size: 22px;
-  font-family: 'Syne', sans-serif;
-  font-weight: 700;
-  color: var(--bleu);
-  margin-top: 8px;
-}
-
-/* GRILLE 2 COL */
-.g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-@media (max-width: 500px) { .g2 { grid-template-columns: 1fr; } }
-
-/* NAVIGATION */
-.nav {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 24px;
-}
-
-.btn-back {
-  padding: 11px 18px;
-  background: var(--gris-clair);
-  color: #374151;
-  border: none;
-  border-radius: 10px;
-  font-family: 'Inter', sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-.btn-back:hover { background: #e5e7eb; }
-
-.btn-next {
-  flex: 1;
-  padding: 13px 20px;
-  background: var(--noir);
-  color: var(--blanc);
-  border: none;
-  border-radius: 10px;
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
-.btn-next:hover { background: #1e1e1e; transform: translateY(-1px); }
-
-.btn-submit {
-  flex: 1;
-  padding: 15px 20px;
-  background: linear-gradient(135deg, #2563eb, #7c3aed);
-  color: white;
-  border: none;
-  border-radius: 10px;
-  font-family: 'Syne', sans-serif;
-  font-size: 15px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.btn-submit:hover { opacity: 0.9; transform: translateY(-1px); }
-
-/* === RAPPORT === */
-#rapport { display: none; }
-
-.r-hero {
-  background: linear-gradient(135deg, #1e1e1e 0%, #0d0d0d 100%);
-  border-radius: 20px;
-  padding: 32px 24px;
-  margin-bottom: 20px;
-  color: white;
-}
-
-.r-hero-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.r-hero-info h2 {
-  font-family: 'Syne', sans-serif;
-  font-size: 24px;
-  font-weight: 800;
-  margin-bottom: 4px;
-}
-
-.r-hero-info p { font-size: 13px; color: rgba(255,255,255,0.5); }
-
-.r-score-big {
-  text-align: center;
-}
-
-.r-score-circle {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Syne', sans-serif;
-  font-size: 26px;
-  font-weight: 800;
-  color: white;
-  margin: 0 auto 6px;
-}
-
-.r-score-label { font-size: 11px; color: rgba(255,255,255,0.5); letter-spacing: 1px; text-transform: uppercase; }
-
-.score-bars {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin-top: 16px;
-}
-
-@media (max-width: 480px) { .score-bars { grid-template-columns: 1fr; } }
-
-.score-bar-item { }
-
-.score-bar-label {
-  display: flex;
-  justify-content: space-between;
-  font-size: 12px;
-  color: rgba(255,255,255,0.6);
-  margin-bottom: 5px;
-}
-
-.score-bar-track {
-  height: 5px;
-  background: rgba(255,255,255,0.1);
-  border-radius: 3px;
-  overflow: hidden;
-}
-
-.score-bar-fill {
-  height: 100%;
-  border-radius: 3px;
-  transition: width 0.8s ease;
-}
-
-/* BLOCS RAPPORT */
-.r-bloc {
-  background: var(--blanc);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 22px 20px;
-  margin-bottom: 14px;
-}
-
-.r-bloc-head {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--gris-clair);
-}
-
-.r-bloc-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  flex-shrink: 0;
-}
-
-.r-bloc-title {
-  font-family: 'Syne', sans-serif;
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--noir);
-}
-
-.r-row {
-  display: flex;
-  gap: 10px;
-  padding: 7px 0;
-  border-bottom: 1px solid #f9fafb;
-  font-size: 13px;
-  align-items: flex-start;
-}
-
-.r-row:last-child { border-bottom: none; }
-
-.r-row-key {
-  font-weight: 600;
-  color: var(--gris);
-  min-width: 140px;
-  flex-shrink: 0;
-  font-size: 12px;
-  padding-top: 1px;
-}
-
-.r-row-val { color: var(--noir); line-height: 1.5; }
-
-.r-insight {
-  padding: 12px 14px;
-  border-radius: 10px;
-  font-size: 13px;
-  line-height: 1.55;
-  margin-top: 10px;
-  display: flex;
-  gap: 10px;
-  align-items: flex-start;
-}
-
-.r-insight.info { background: var(--bleu-clair); color: #1e40af; }
-.r-insight.success { background: var(--vert-clair); color: #065f46; }
-.r-insight.warning { background: var(--orange-clair); color: #92400e; }
-.r-insight.danger { background: var(--rouge-clair); color: #991b1b; }
-.r-insight.purple { background: var(--violet-clair); color: #5b21b6; }
-
-.r-insight-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
-
-.tag-pill {
-  display: inline-flex;
-  align-items: center;
-  padding: 3px 10px;
-  border-radius: 20px;
-  font-size: 11px;
-  font-weight: 600;
-  margin: 2px;
-}
-
-.pill-blue { background: var(--bleu-clair); color: var(--bleu); }
-.pill-green { background: var(--vert-clair); color: var(--vert); }
-.pill-orange { background: var(--orange-clair); color: var(--orange); }
-.pill-red { background: var(--rouge-clair); color: var(--rouge); }
-.pill-purple { background: var(--violet-clair); color: var(--violet); }
-
-/* OPPORTUNITÉS */
-.opp-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
-@media (max-width: 480px) { .opp-grid { grid-template-columns: 1fr; } }
-
-.opp-card {
-  padding: 14px;
-  border-radius: 10px;
-  border: 1px solid var(--border);
-  background: #fafafa;
-}
-
-.opp-priority {
-  font-size: 10px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 5px;
-}
-
-.opp-title {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--noir);
-  margin-bottom: 4px;
-}
-
-.opp-desc {
-  font-size: 12px;
-  color: var(--gris);
-  line-height: 1.45;
-}
-
-/* ACTIONS */
-.r-actions { margin-top: 20px; display: flex; flex-direction: column; gap: 8px; }
-
-.btn-print-r {
-  width: 100%;
-  padding: 14px;
-  background: var(--noir);
-  color: white;
-  border: none;
-  border-radius: 10px;
-  font-family: 'Syne', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
-.btn-print-r:hover { background: #1e1e1e; }
-
-.btn-new {
-  width: 100%;
-  padding: 12px;
-  background: transparent;
-  color: var(--gris);
-  border: 1.5px solid var(--border);
-  border-radius: 10px;
-  font-family: 'Inter', sans-serif;
-  font-size: 13px;
-  cursor: pointer;
-}
-
-@media print {
-  .hero, .progress-wrap, .r-actions, .nav { display: none !important; }
-  .r-bloc { break-inside: avoid; }
-  body { background: white; }
-}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:var(--font-body);background:var(--cream);color:var(--text);min-height:100vh;}
+
+.hero{background:var(--dark);padding:48px 20px 28px;text-align:center;}
+.hero-badge{display:inline-block;background:rgba(192,106,53,.15);border:1px solid rgba(192,106,53,.3);color:var(--accent-soft);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:16px;}
+.hero h1{font-family:var(--font-heading);font-size:28px;font-weight:700;color:var(--cream);line-height:1.25;margin-bottom:10px;}
+.hero h1 em{font-style:italic;color:var(--accent-soft);}
+.hero-sub{font-size:13px;color:rgba(250,246,241,.5);max-width:460px;margin:0 auto 18px;line-height:1.6;}
+.hero-meta{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;}
+.hero-meta span{font-size:12px;color:rgba(250,246,241,.4);}
+
+.mode-wrap{background:var(--dark);padding:0 20px 22px;display:flex;justify-content:center;}
+.mode-toggle{display:flex;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:4px;gap:4px;}
+.mode-btn{padding:8px 20px;border:none;border-radius:9px;font-family:var(--font-body);font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;background:transparent;color:rgba(250,246,241,.45);}
+.mode-btn.active{background:var(--accent);color:white;}
+
+.progress-wrap{background:var(--dark);padding:0 20px 18px;}
+.steps-bar{display:flex;gap:4px;max-width:700px;margin:0 auto;}
+.step-bar{flex:1;height:3px;background:rgba(255,255,255,.1);border-radius:2px;transition:background .3s;}
+.step-bar.done{background:var(--accent);}
+.step-bar.active{background:var(--accent-soft);}
+
+.container{max-width:700px;margin:0 auto;padding:24px 16px 80px;}
+
+.card{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:26px 22px;margin-bottom:18px;display:none;animation:slideUp .3s ease;box-shadow:var(--shadow);}
+.card.active{display:block;}
+@keyframes slideUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+
+.card-tag{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);margin-bottom:6px;}
+.card-title{font-family:var(--font-heading);font-size:21px;font-weight:700;color:var(--text);line-height:1.2;margin-bottom:6px;}
+.card-desc{font-size:13px;color:var(--text-light);line-height:1.55;margin-bottom:20px;}
+
+.field{margin-bottom:18px;}
+label.field-label{display:block;font-size:13px;font-weight:700;color:var(--charcoal);margin-bottom:6px;line-height:1.4;}
+label.field-label .hint{display:block;font-weight:400;font-size:12px;color:var(--text-light);margin-top:2px;font-style:italic;}
+
+input[type=text],input[type=email],input[type=tel],input[type=url],input[type=number],select,textarea{width:100%;padding:10px 13px;border:1.5px solid var(--border);border-radius:var(--radius-sm);background:var(--cream);font-family:var(--font-body);font-size:14px;color:var(--text);transition:all .2s;-webkit-appearance:none;}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);background:var(--card-bg);box-shadow:0 0 0 3px rgba(192,106,53,.1);}
+textarea{min-height:80px;resize:vertical;line-height:1.55;}
+select{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%237a7568' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:32px;}
+
+.options{display:flex;flex-direction:column;gap:7px;}
+.opt{display:flex;align-items:flex-start;gap:11px;padding:11px 13px;border:1.5px solid var(--border);border-radius:var(--radius-sm);background:var(--cream);cursor:pointer;transition:all .18s;font-size:13px;line-height:1.4;color:var(--charcoal-light);}
+.opt:hover{border-color:var(--accent-soft);background:var(--warm);}
+.opt.sel{border-color:var(--accent);background:var(--warm);color:var(--accent);font-weight:600;}
+.opt input{width:16px;height:16px;accent-color:var(--accent);flex-shrink:0;margin-top:1px;}
+
+.slider-wrap{margin-top:4px;}
+.slider-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--text-light);margin-bottom:6px;}
+input[type=range]{width:100%;height:4px;-webkit-appearance:none;background:var(--border);border-radius:2px;outline:none;cursor:pointer;}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--accent);border:3px solid white;box-shadow:0 1px 4px rgba(0,0,0,.2);}
+.slider-val{text-align:center;font-size:20px;font-family:var(--font-heading);font-weight:700;color:var(--accent);margin-top:8px;}
+
+.url-group{display:flex;align-items:center;gap:8px;margin-bottom:10px;}
+.url-icon{width:34px;height:34px;background:var(--cream-deep);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;}
+.url-group input{flex:1;margin-bottom:0;}
+
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+@media(max-width:500px){.g2{grid-template-columns:1fr;}}
+
+.nav{display:flex;align-items:center;gap:10px;margin-top:22px;}
+.btn-back{padding:10px 16px;background:var(--cream-deep);color:var(--charcoal-light);border:none;border-radius:var(--radius-sm);font-family:var(--font-body);font-size:13px;font-weight:600;cursor:pointer;}
+.btn-back:hover{background:var(--border);}
+.btn-next{flex:1;padding:12px 20px;background:var(--charcoal);color:var(--cream);border:none;border-radius:var(--radius-sm);font-family:var(--font-body);font-size:14px;font-weight:700;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px;}
+.btn-next:hover{background:var(--dark);transform:translateY(-1px);}
+.btn-submit{flex:1;padding:14px 20px;background:var(--accent);color:white;border:none;border-radius:var(--radius-sm);font-family:var(--font-heading);font-size:15px;font-weight:700;cursor:pointer;transition:all .2s;}
+.btn-submit:hover{background:var(--accent-hover);transform:translateY(-1px);}
+
+/* RAPPORT */
+#rapport{display:none;}
+.r-hero{background:linear-gradient(135deg,#2c2a27,#1e1d1b);border-radius:var(--radius);padding:28px 22px;margin-bottom:18px;color:var(--cream);}
+.r-hero-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:18px;flex-wrap:wrap;gap:12px;}
+.r-hero-info h2{font-family:var(--font-heading);font-size:22px;font-weight:700;margin-bottom:4px;}
+.r-hero-info p{font-size:12px;color:rgba(250,246,241,.45);}
+.r-score-circle{width:76px;height:76px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:20px;font-weight:700;color:white;}
+.r-score-label{font-size:10px;color:rgba(250,246,241,.4);letter-spacing:1px;text-transform:uppercase;text-align:center;margin-top:5px;}
+.score-bars{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px;}
+@media(max-width:480px){.score-bars{grid-template-columns:1fr;}}
+.score-bar-label{display:flex;justify-content:space-between;font-size:11px;color:rgba(250,246,241,.5);margin-bottom:4px;}
+.score-bar-track{height:4px;background:rgba(255,255,255,.1);border-radius:3px;overflow:hidden;}
+.score-bar-fill{height:100%;border-radius:3px;transition:width .8s ease;}
+
+.r-bloc{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-sm);padding:20px 18px;margin-bottom:12px;box-shadow:var(--shadow);}
+.r-bloc-head{display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--cream-deep);}
+.r-bloc-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;}
+.r-bloc-title{font-family:var(--font-heading);font-size:15px;font-weight:700;color:var(--text);}
+
+.r-row{display:flex;gap:10px;padding:6px 0;border-bottom:1px solid var(--cream);font-size:13px;align-items:flex-start;}
+.r-row:last-child{border-bottom:none;}
+.r-row-key{font-weight:700;color:var(--text-light);min-width:130px;flex-shrink:0;font-size:12px;padding-top:1px;}
+.r-row-val{color:var(--text);line-height:1.5;}
+
+.r-insight{padding:11px 13px;border-radius:var(--radius-sm);font-size:13px;line-height:1.55;margin-top:9px;display:flex;gap:9px;align-items:flex-start;}
+.r-insight.warm{background:var(--warm);color:var(--charcoal);border:1px solid var(--border);}
+.r-insight.success{background:var(--green-soft);color:#065f46;border:1px solid #c0d8c8;}
+.r-insight.warning{background:var(--orange-soft);color:#92400e;border:1px solid #fde68a;}
+.r-insight.danger{background:var(--red-soft);color:#991b1b;border:1px solid #e0c8c4;}
+.r-insight-icon{font-size:15px;flex-shrink:0;margin-top:1px;}
+
+.tag-pill{display:inline-flex;align-items:center;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;margin:2px;}
+.pill-warm{background:var(--warm);color:var(--accent);border:1px solid var(--border);}
+.pill-red{background:var(--red-soft);color:var(--red);}
+.pill-green{background:var(--green-soft);color:var(--green);}
+
+.r-link{display:inline-flex;align-items:center;gap:5px;font-size:13px;color:var(--accent);text-decoration:none;padding:4px 10px;background:var(--warm);border-radius:6px;margin:3px;border:1px solid var(--border);}
+.r-link:hover{background:var(--cream-deep);}
+
+.opp-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+@media(max-width:480px){.opp-grid{grid-template-columns:1fr;}}
+.opp-card{padding:13px;border-radius:var(--radius-sm);border:1px solid var(--border);background:var(--cream);}
+.opp-priority{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;}
+.opp-title{font-size:13px;font-weight:700;color:var(--text);margin-bottom:3px;font-family:var(--font-heading);}
+.opp-desc{font-size:12px;color:var(--text-light);line-height:1.45;}
+
+.r-signature{text-align:center;padding:22px;background:var(--dark);border-radius:var(--radius);margin-top:16px;color:var(--cream);}
+.r-signature strong{display:block;font-family:var(--font-heading);font-size:17px;margin-bottom:3px;}
+.r-signature span{font-size:11px;color:rgba(250,246,241,.45);letter-spacing:1px;text-transform:uppercase;}
+.r-cta-link{display:inline-block;margin-top:14px;padding:11px 22px;background:var(--accent);color:white;border-radius:var(--radius-sm);font-family:var(--font-heading);font-weight:700;font-size:14px;text-decoration:none;}
+
+.r-actions{margin-top:16px;display:flex;flex-direction:column;gap:8px;}
+.btn-print-r{width:100%;padding:13px;background:var(--charcoal);color:var(--cream);border:none;border-radius:var(--radius-sm);font-family:var(--font-heading);font-size:14px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;}
+.btn-print-r:hover{background:var(--dark);}
+.btn-new{width:100%;padding:11px;background:transparent;color:var(--text-light);border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font-body);font-size:13px;cursor:pointer;}
+
+@media print{.hero,.progress-wrap,.mode-wrap,.r-actions,.nav{display:none!important;}.r-bloc{break-inside:avoid;}body{background:white;}}
 </style>
 </head>
 <body>
 
 <div class="hero">
-  <div class="hero-badge">Diagnostic Gratuit</div>
-  <h1>Révélez le potentiel<br>de <span>votre entreprise</span></h1>
-  <div class="hero-sub">Un diagnostic complet de votre positionnement, communication et opportunités de croissance. Résultat immédiat.</div>
+  <div class="hero-badge">Fabien Granier · Pilote Marketing</div>
+  <h1>Diagnostic marketing<br><em>de votre entreprise</em></h1>
+  <div class="hero-sub">Un état des lieux honnête de votre situation. Rapport immédiat, sans engagement.</div>
   <div class="hero-meta">
     <span>📋 8 minutes</span>
-    <span>🔒 100% confidentiel</span>
+    <span>🔒 Confidentiel</span>
     <span>📊 Rapport instantané</span>
   </div>
 </div>
 
-<div class="progress-wrap">
-  <div class="steps" id="steps">
-    <div class="step active" id="s1"></div>
-    <div class="step" id="s2"></div>
-    <div class="step" id="s3"></div>
-    <div class="step" id="s4"></div>
-    <div class="step" id="s5"></div>
-    <div class="step" id="s6"></div>
-    <div class="step" id="s7"></div>
-    <div class="step" id="s8"></div>
+<div class="mode-wrap">
+  <div class="mode-toggle">
+    <button class="mode-btn active" id="btn-prospect" onclick="setMode('prospect')">Je remplis moi-même</button>
+    <button class="mode-btn" id="btn-pilote" onclick="setMode('pilote')">Mode Pilote ↗</button>
   </div>
+</div>
+
+<div class="progress-wrap">
+  <div class="steps-bar" id="steps-bar"></div>
 </div>
 
 <div class="container">
 
-<!-- SECTION 1 : IDENTITÉ -->
+<!-- ========== MODE PROSPECT ========== -->
+<div id="mode-prospect">
+
 <div class="card active" id="c1">
-  <div class="card-header">
-    <div class="card-tag">Étape 1 / 8 — Identité</div>
-    <div class="card-title">Votre entreprise en quelques mots</div>
-    <div class="card-desc">On commence par comprendre qui vous êtes avant de voir où vous pouvez aller.</div>
-  </div>
-
-  <div class="field">
-    <label class="field-label">Nom de votre entreprise *</label>
-    <input type="text" id="nom" placeholder="Ex: Maison Dupont">
-  </div>
-
+  <div class="card-tag">Étape 1 / 8 — Identité</div>
+  <div class="card-title">Votre entreprise en quelques mots</div>
+  <div class="card-desc">On commence par comprendre qui vous êtes avant de voir où vous pouvez aller.</div>
+  <div class="field"><label class="field-label">Nom de votre entreprise *</label><input type="text" id="nom" placeholder="Ex : Maison Dupont"></div>
   <div class="g2">
-    <div class="field">
-      <label class="field-label">Secteur d'activité *</label>
-      <select id="secteur">
-        <option value="">Choisir...</option>
-        <option>Alimentation & Boissons artisanales</option>
-        <option>Agriculture & Producteurs locaux</option>
-        <option>Cosmétiques & Bien-être</option>
-        <option>Mode & Textile</option>
-        <option>Décoration & Artisanat</option>
-        <option>Restauration & Hôtellerie</option>
-        <option>Services aux entreprises</option>
-        <option>Commerce de détail</option>
-        <option>Technologie & SaaS</option>
-        <option>Santé & Médical</option>
-        <option>Sport & Loisirs</option>
-        <option>Formation & Coaching</option>
-        <option>Immobilier</option>
-        <option>Bâtiment & Artisanat du bâtiment</option>
-        <option>Autre</option>
-      </select>
+    <div class="field"><label class="field-label">Secteur *</label>
+      <select id="secteur"><option value="">Choisir…</option><option>Alimentation & Boissons artisanales</option><option>Agriculture & Producteurs locaux</option><option>Cosmétiques & Bien-être</option><option>Mode & Textile</option><option>Décoration & Artisanat</option><option>Restauration & Hôtellerie</option><option>Services aux entreprises</option><option>Commerce de détail</option><option>Bâtiment & Artisanat</option><option>Santé & Médical</option><option>Sport & Loisirs</option><option>Formation & Coaching</option><option>Immobilier</option><option>Autre</option></select>
     </div>
-    <div class="field">
-      <label class="field-label">Ville / Région</label>
-      <input type="text" id="ville" placeholder="Ex: Albi, Occitanie">
-    </div>
+    <div class="field"><label class="field-label">Ville / Région</label><input type="text" id="ville" placeholder="Ex : Albi, Occitanie"></div>
   </div>
-
   <div class="g2">
-    <div class="field">
-      <label class="field-label">Ancienneté</label>
-      <select id="anciennete">
-        <option value="">Choisir...</option>
-        <option>Moins d'1 an</option>
-        <option>1 à 3 ans</option>
-        <option>3 à 5 ans</option>
-        <option>5 à 10 ans</option>
-        <option>Plus de 10 ans</option>
-      </select>
+    <div class="field"><label class="field-label">Ancienneté</label>
+      <select id="anciennete"><option value="">Choisir…</option><option>Moins d'1 an</option><option>1 à 3 ans</option><option>3 à 5 ans</option><option>5 à 10 ans</option><option>Plus de 10 ans</option></select>
     </div>
-    <div class="field">
-      <label class="field-label">Taille de l'équipe</label>
-      <select id="taille">
-        <option value="">Choisir...</option>
-        <option>Solo (1 personne)</option>
-        <option>2 à 5 personnes</option>
-        <option>6 à 20 personnes</option>
-        <option>21 à 50 personnes</option>
-        <option>Plus de 50</option>
-      </select>
+    <div class="field"><label class="field-label">Taille équipe</label>
+      <select id="taille"><option value="">Choisir…</option><option>Solo</option><option>2 à 5</option><option>6 à 20</option><option>21 à 50</option><option>Plus de 50</option></select>
     </div>
   </div>
-
-  <div class="field">
-    <label class="field-label">Décrivez votre activité principale en 2-3 phrases
-      <span class="hint">Qu'est-ce que vous faites ? Pour qui ? Avec quelle approche particulière ?</span>
-    </label>
-    <textarea id="activite" placeholder="Ex: Nous produisons du miel de garrigue dans le Tarn depuis 1987. Nos ruches sont en agriculture biologique certifiée. On vend en direct aux particuliers et aux épiceries fines."></textarea>
+  <div class="field"><label class="field-label">Décrivez votre activité en 2-3 phrases<span class="hint">Quoi, pour qui, avec quelle approche</span></label><textarea id="activite" placeholder="Ex : Nous produisons du miel de garrigue dans le Tarn depuis 1987. Nos ruches sont en bio certifié. On vend en direct aux particuliers et aux épiceries fines."></textarea></div>
+  <div class="field"><label class="field-label">CA annuel estimé</label>
+    <select id="ca"><option value="">Préfère ne pas dire</option><option>Moins de 50 000 €</option><option>50 000 à 150 000 €</option><option>150 000 à 500 000 €</option><option>500 000 € à 1M€</option><option>Plus de 1M€</option></select>
   </div>
-
-  <div class="field">
-    <label class="field-label">Chiffre d'affaires annuel estimé</label>
-    <select id="ca">
-      <option value="">Préfère ne pas dire</option>
-      <option>Moins de 50 000€</option>
-      <option>50 000 à 150 000€</option>
-      <option>150 000 à 500 000€</option>
-      <option>500 000€ à 1M€</option>
-      <option>Plus de 1M€</option>
-    </select>
-  </div>
-
-  <div class="nav">
-    <button class="btn-next" onclick="go(1,2)">Continuer <span>→</span></button>
-  </div>
+  <div class="nav"><button class="btn-next" onclick="go(1,2)">Continuer →</button></div>
 </div>
 
-<!-- SECTION 2 : POSITIONNEMENT -->
 <div class="card" id="c2">
-  <div class="card-header">
-    <div class="card-tag">Étape 2 / 8 — Positionnement</div>
-    <div class="card-title">Qui êtes-vous vraiment sur votre marché ?</div>
-    <div class="card-desc">C'est souvent ici que se cache le plus grand potentiel inexploité.</div>
-  </div>
-
-  <div class="field">
-    <label class="field-label">Quelle est votre promesse principale pour vos clients ?
-      <span class="hint">Ce que vous garantissez implicitement — votre raison d'être</span>
-    </label>
-    <textarea id="promesse" placeholder="Ex: Vous offrir le goût authentique de la Provence, sans artifice, sans compromis. Ou : Vous faire gagner 10h par semaine sur votre comptabilité."></textarea>
-  </div>
-
-  <div class="field">
-    <label class="field-label">En quoi êtes-vous différent de vos concurrents ?
-      <span class="hint">Soyez précis. Évitez les généralités comme "qualité" et "service".</span>
-    </label>
-    <textarea id="differentiation" placeholder="Ex: On est les seuls producteurs de la région à faire vieillir notre miel en fûts de chêne. Notre process de fabrication est 100% transparent — on invite les clients à visiter."></textarea>
-  </div>
-
-  <div class="field">
-    <label class="field-label">Comment vos meilleurs clients vous décrivent-ils à leurs proches ?
-      <span class="hint">Le bouche-à-oreille naturel — c'est souvent votre meilleur insight marketing</span>
-    </label>
-    <textarea id="bouche_a_oreille" placeholder="Ex: Ils disent que c'est le meilleur rapport qualité-prix local. Que c'est une adresse qu'ils gardent jalousement. Qu'on répare ce que d'autres refusent de toucher..."></textarea>
-  </div>
-
-  <div class="field">
-    <label class="field-label">Vos 3 valeurs fondamentales (celles qui guident vraiment vos décisions)</label>
-    <input type="text" id="valeurs" placeholder="Ex: Authenticité, proximité, transmission">
-  </div>
-
-  <div class="field">
-    <label class="field-label">Quel est votre positionnement prix ?</label>
+  <div class="card-tag">Étape 2 / 8 — Positionnement</div>
+  <div class="card-title">Qui êtes-vous vraiment sur votre marché ?</div>
+  <div class="card-desc">C'est souvent ici que se cache le plus grand potentiel inexploité.</div>
+  <div class="field"><label class="field-label">Votre promesse principale<span class="hint">Ce que vous garantissez implicitement à vos clients</span></label><textarea id="promesse" placeholder="Ex : Vous offrir le goût authentique de la Provence, sans artifice. Ou : Vous faire gagner 10h par semaine sur votre compta."></textarea></div>
+  <div class="field"><label class="field-label">En quoi êtes-vous différent de vos concurrents ?<span class="hint">Soyez précis. Évitez "qualité" et "service" sans les expliquer.</span></label><textarea id="diff" placeholder="Ex : On est les seuls producteurs de la région à faire vieillir notre miel en fûts de chêne. Notre process est 100% transparent."></textarea></div>
+  <div class="field"><label class="field-label">Comment vos meilleurs clients vous décrivent-ils à leurs proches ?</label><textarea id="bao" placeholder="Ex : Ils disent que c'est le meilleur rapport qualité-prix local. Qu'on répare ce que d'autres refusent de toucher…"></textarea></div>
+  <div class="field"><label class="field-label">Positionnement prix</label>
     <div class="options" id="pos_prix">
       <label class="opt"><input type="radio" name="pos_prix" value="Entrée de gamme"> Entrée de gamme — le choix économique</label>
       <label class="opt"><input type="radio" name="pos_prix" value="Milieu de gamme"> Milieu de gamme — rapport qualité-prix</label>
@@ -775,716 +230,569 @@ input[type="range"]::-webkit-slider-thumb {
       <label class="opt"><input type="radio" name="pos_prix" value="Luxe"> Luxe / ultra-premium</label>
     </div>
   </div>
-
-  <div class="nav">
-    <button class="btn-back" onclick="go(2,1)">←</button>
-    <button class="btn-next" onclick="go(2,3)">Continuer <span>→</span></button>
-  </div>
+  <div class="nav"><button class="btn-back" onclick="go(2,1)">←</button><button class="btn-next" onclick="go(2,3)">Continuer →</button></div>
 </div>
 
-<!-- SECTION 3 : MARCHÉ & CLIENTS -->
 <div class="card" id="c3">
-  <div class="card-header">
-    <div class="card-tag">Étape 3 / 8 — Marché & Clients</div>
-    <div class="card-title">Qui achetez-vous vraiment ?</div>
-    <div class="card-desc">Comprendre vos clients, c'est comprendre votre potentiel de croissance.</div>
-  </div>
-
-  <div class="field">
-    <label class="field-label">Décrivez votre client idéal
-      <span class="hint">Pas un profil générique — la vraie personne qui achète le plus et revient</span>
-    </label>
-    <textarea id="client_ideal" placeholder="Ex: Femme de 40-55 ans, sensible au local et au bien-manger, achète pour offrir ou se faire plaisir. Elle est prête à payer plus cher pour savoir d'où vient ce qu'elle mange..."></textarea>
-  </div>
-
-  <div class="field">
-    <label class="field-label">Quel est le problème ou désir principal de ce client ?
-      <span class="hint">Ce qui le pousse à venir chez vous plutôt que chez un concurrent ou en grande surface</span>
-    </label>
-    <textarea id="probleme_client" placeholder="Ex: Il cherche une alternative authentique à la grande distribution. Il veut sentir qu'il fait un acte militant en consommant local. Il veut offrir quelque chose de mémorable..."></textarea>
-  </div>
-
-  <div class="field">
-    <label class="field-label">Quelles sont les 3 principales objections pour ne pas acheter ?
-      <span class="hint">Ce qui freine vos prospects — prix, méconnaissance, concurrence, habitudes...</span>
-    </label>
-    <textarea id="objections" placeholder="Ex: 1. Trop cher par rapport au supermarché&#10;2. Ne sait pas où vous trouver&#10;3. Ne comprend pas la différence avec les produits standards"></textarea>
-  </div>
-
-  <div class="field">
-    <label class="field-label">Quel est votre marché géographique principal ?</label>
+  <div class="card-tag">Étape 3 / 8 — Marché & Clients</div>
+  <div class="card-title">Pour qui vous travaillez vraiment ?</div>
+  <div class="card-desc">Comprendre vos clients, c'est comprendre votre potentiel de croissance.</div>
+  <div class="field"><label class="field-label">Décrivez votre client idéal<span class="hint">Pas un profil générique — la vraie personne qui achète le plus et revient</span></label><textarea id="client_ideal" placeholder="Ex : Artisan de 40-55 ans, débordé sur le terrain, marketing confié à quelqu'un qui 'fait ça en plus'…"></textarea></div>
+  <div class="field"><label class="field-label">Son problème ou désir principal</label><textarea id="pb_client" placeholder="Ex : Il veut des chantiers qui rentrent sans dépendre du bouche-à-oreille. Il n'a pas le temps ni l'envie de gérer son marketing lui-même…"></textarea></div>
+  <div class="field"><label class="field-label">Vos 3 principales objections clients<span class="hint">Ce qui freine vos prospects</span></label><textarea id="objections" placeholder="Ex : 1. Trop cher&#10;2. Pas convaincu que ça marche dans mon secteur&#10;3. Peur de perdre le contrôle"></textarea></div>
+  <div class="field"><label class="field-label">Marché géographique</label>
     <div class="options" id="marche_geo">
-      <label class="opt"><input type="radio" name="marche_geo" value="Local (commune, agglomération)"> Local — commune ou agglomération</label>
+      <label class="opt"><input type="radio" name="marche_geo" value="Local"> Local — commune ou agglomération</label>
       <label class="opt"><input type="radio" name="marche_geo" value="Régional"> Régional — département ou région</label>
-      <label class="opt"><input type="radio" name="marche_geo" value="National"> National — toute la France</label>
+      <label class="opt"><input type="radio" name="marche_geo" value="National"> National</label>
       <label class="opt"><input type="radio" name="marche_geo" value="International"> International</label>
     </div>
   </div>
-
-  <div class="field">
-    <label class="field-label">Comment évaluez-vous la concurrence sur votre marché ?</label>
-    <div class="options" id="concurrence">
-      <label class="opt"><input type="radio" name="concurrence" value="Faible — peu de concurrents directs"> Faible — peu de concurrents directs</label>
-      <label class="opt"><input type="radio" name="concurrence" value="Modérée — marché existant mais de la place"> Modérée — marché existant, de la place</label>
-      <label class="opt"><input type="radio" name="concurrence" value="Forte — marché saturé"> Forte — marché très concurrentiel</label>
-    </div>
-  </div>
-
-  <div class="nav">
-    <button class="btn-back" onclick="go(3,2)">←</button>
-    <button class="btn-next" onclick="go(3,4)">Continuer <span>→</span></button>
-  </div>
+  <div class="nav"><button class="btn-back" onclick="go(3,2)">←</button><button class="btn-next" onclick="go(3,4)">Continuer →</button></div>
 </div>
 
-<!-- SECTION 4 : COMMUNICATION -->
 <div class="card" id="c4">
-  <div class="card-header">
-    <div class="card-tag">Étape 4 / 8 — Communication</div>
-    <div class="card-title">Comment vous faites-vous connaître aujourd'hui ?</div>
-    <div class="card-desc">La communication, c'est le lien entre vous et vos futurs clients.</div>
-  </div>
-
-  <div class="field">
-    <label class="field-label">Canaux de communication actifs (plusieurs possibles)</label>
+  <div class="card-tag">Étape 4 / 8 — Communication</div>
+  <div class="card-title">Comment vous faites-vous connaître ?</div>
+  <div class="card-desc">La communication, c'est le lien entre vous et vos futurs clients.</div>
+  <div class="field"><label class="field-label">Canaux actifs (plusieurs possibles)</label>
     <div class="options" id="canaux_com">
-      <label class="opt"><input type="checkbox" value="Bouche-à-oreille"> Bouche-à-oreille — recommandations naturelles</label>
-      <label class="opt"><input type="checkbox" value="Réseaux sociaux (Instagram, Facebook, LinkedIn)"> Réseaux sociaux (Instagram, Facebook, LinkedIn...)</label>
-      <label class="opt"><input type="checkbox" value="Site web / blog"> Site web ou blog</label>
-      <label class="opt"><input type="checkbox" value="Email marketing / newsletter"> Email marketing / newsletter</label>
-      <label class="opt"><input type="checkbox" value="Publicité payante (Google, Facebook Ads)"> Publicité payante (Google Ads, Meta Ads...)</label>
-      <label class="opt"><input type="checkbox" value="Presse locale / relations presse"> Presse locale / relations presse</label>
-      <label class="opt"><input type="checkbox" value="Événements, salons, marchés"> Événements, salons, marchés</label>
-      <label class="opt"><input type="checkbox" value="Partenariats"> Partenariats avec d'autres entreprises</label>
-      <label class="opt"><input type="checkbox" value="Aucun — peu ou pas de communication active"> Aucun — peu ou pas de communication active</label>
+      <label class="opt"><input type="checkbox" value="Bouche-à-oreille"> Bouche-à-oreille</label>
+      <label class="opt"><input type="checkbox" value="Réseaux sociaux"> Réseaux sociaux</label>
+      <label class="opt"><input type="checkbox" value="Site web"> Site web</label>
+      <label class="opt"><input type="checkbox" value="Email marketing"> Email marketing / newsletter</label>
+      <label class="opt"><input type="checkbox" value="Publicité payante"> Publicité payante (Google, Meta Ads…)</label>
+      <label class="opt"><input type="checkbox" value="Presse / événements"> Presse locale / événements / salons</label>
+      <label class="opt"><input type="checkbox" value="Aucun"> Aucun — peu ou pas de communication active</label>
     </div>
   </div>
-
-  <div class="field">
-    <label class="field-label">Êtes-vous satisfait de votre communication actuelle ?</label>
+  <div class="field"><label class="field-label">Satisfaction de votre communication actuelle</label>
     <div class="slider-wrap">
       <div class="slider-labels"><span>Pas du tout</span><span>Très satisfait</span></div>
-      <input type="range" id="satisfaction_com" min="1" max="10" value="5" oninput="updateSlider('satisfaction_com','sv_com')">
+      <input type="range" id="sat_com" min="1" max="10" value="5" oninput="updateSlider('sat_com','sv_com')">
       <div class="slider-val" id="sv_com">5 / 10</div>
     </div>
   </div>
-
-  <div class="field">
-    <label class="field-label">Quel est votre plus gros manque en communication ?
-      <span class="hint">Là où vous vous sentez le plus insuffisant ou perdu</span>
-    </label>
-    <textarea id="manque_com" placeholder="Ex: On ne sait pas quoi poster sur Instagram. On n'a pas le temps de communiquer régulièrement. Notre message ne touche pas les bonnes personnes. On n'a pas de stratégie claire..."></textarea>
-  </div>
-
-  <div class="field">
-    <label class="field-label">Si vous arrêtez toute communication pendant 3 mois, que se passe-t-il ?
-      <span class="hint">Révèle si votre activité est dépendante de la visibilité permanente</span>
-    </label>
+  <div class="field"><label class="field-label">Votre plus gros manque en communication</label><textarea id="manque_com" placeholder="Ex : On ne sait pas quoi poster. On n'a pas le temps. Notre message ne touche pas les bonnes personnes…"></textarea></div>
+  <div class="field"><label class="field-label">Si vous stoppez toute communication pendant 3 mois…</label>
     <div class="options" id="arret_com">
-      <label class="opt"><input type="radio" name="arret_com" value="Rien — les clients viennent d'eux-mêmes"> Rien de grave — les clients viennent naturellement</label>
+      <label class="opt"><input type="radio" name="arret_com" value="Rien"> Rien de grave — les clients viennent naturellement</label>
       <label class="opt"><input type="radio" name="arret_com" value="Légère baisse"> Légère baisse d'activité</label>
-      <label class="opt"><input type="radio" name="arret_com" value="Forte baisse"> Forte baisse — on dépend de notre visibilité</label>
-      <label class="opt"><input type="radio" name="arret_com" value="On disparaît"> On disparaît — sans communication, plus de clients</label>
+      <label class="opt"><input type="radio" name="arret_com" value="Forte baisse"> Forte baisse — on dépend de la visibilité</label>
+      <label class="opt"><input type="radio" name="arret_com" value="On disparaît"> On disparaît — sans com', plus de clients</label>
     </div>
   </div>
-
-  <div class="nav">
-    <button class="btn-back" onclick="go(4,3)">←</button>
-    <button class="btn-next" onclick="go(4,5)">Continuer <span>→</span></button>
-  </div>
+  <div class="nav"><button class="btn-back" onclick="go(4,3)">←</button><button class="btn-next" onclick="go(4,5)">Continuer →</button></div>
 </div>
 
-<!-- SECTION 5 : DIGITAL -->
 <div class="card" id="c5">
-  <div class="card-header">
-    <div class="card-tag">Étape 5 / 8 — Présence digitale</div>
-    <div class="card-title">Votre empreinte numérique</div>
-    <div class="card-desc">Le digital n'est pas tout — mais ignorer ce levier, c'est laisser de la croissance sur la table.</div>
-  </div>
-
-  <div class="field">
-    <label class="field-label">Votre présence en ligne actuelle</label>
+  <div class="card-tag">Étape 5 / 8 — Présence digitale</div>
+  <div class="card-title">Votre empreinte numérique</div>
+  <div class="card-desc">Ignorer ce levier, c'est laisser de la croissance sur la table.</div>
+  <div class="field"><label class="field-label">Présence en ligne</label>
     <div class="options" id="presence_web">
-      <label class="opt"><input type="radio" name="presence_web" value="Site e-commerce complet"> Site e-commerce complet (vente en ligne)</label>
+      <label class="opt"><input type="radio" name="presence_web" value="Site e-commerce"> Site e-commerce complet (vente en ligne)</label>
       <label class="opt"><input type="radio" name="presence_web" value="Site vitrine"> Site vitrine (présentation, pas de vente)</label>
-      <label class="opt"><input type="radio" name="presence_web" value="Réseaux sociaux seulement"> Réseaux sociaux uniquement</label>
-      <label class="opt"><input type="radio" name="presence_web" value="Fiche Google My Business"> Fiche Google (Maps) uniquement</label>
-      <label class="opt"><input type="radio" name="presence_web" value="Aucune présence digitale"> Aucune présence en ligne</label>
+      <label class="opt"><input type="radio" name="presence_web" value="Réseaux seulement"> Réseaux sociaux uniquement</label>
+      <label class="opt"><input type="radio" name="presence_web" value="Google Maps"> Fiche Google My Business uniquement</label>
+      <label class="opt"><input type="radio" name="presence_web" value="Aucune"> Aucune présence en ligne</label>
     </div>
   </div>
-
-  <div class="field">
-    <label class="field-label">Quelle part de votre CA vient du digital ?</label>
+  <div class="field"><label class="field-label">Part du CA venant du digital</label>
     <div class="options" id="part_digital">
       <label class="opt"><input type="radio" name="part_digital" value="0%"> 0% — aucune vente en ligne</label>
-      <label class="opt"><input type="radio" name="part_digital" value="Moins de 10%"> Moins de 10%</label>
-      <label class="opt"><input type="radio" name="part_digital" value="10 à 30%"> 10 à 30%</label>
-      <label class="opt"><input type="radio" name="part_digital" value="30 à 60%"> 30 à 60%</label>
-      <label class="opt"><input type="radio" name="part_digital" value="Plus de 60%"> Plus de 60%</label>
+      <label class="opt"><input type="radio" name="part_digital" value="<10%"> Moins de 10%</label>
+      <label class="opt"><input type="radio" name="part_digital" value="10-30%"> 10 à 30%</label>
+      <label class="opt"><input type="radio" name="part_digital" value="30-60%"> 30 à 60%</label>
+      <label class="opt"><input type="radio" name="part_digital" value=">60%"> Plus de 60%</label>
     </div>
   </div>
-
-  <div class="field">
-    <label class="field-label">Avez-vous une base de contacts email / clients ?</label>
+  <div class="field"><label class="field-label">Base de contacts email / clients</label>
     <div class="options" id="base_contacts">
-      <label class="opt"><input type="radio" name="base_contacts" value="Oui, bien structurée et utilisée régulièrement"> Oui, structurée et utilisée régulièrement</label>
-      <label class="opt"><input type="radio" name="base_contacts" value="Oui, mais rarement exploitée"> Oui, mais rarement exploitée</label>
-      <label class="opt"><input type="radio" name="base_contacts" value="Partielle — quelques contacts épars"> Quelques contacts épars</label>
-      <label class="opt"><input type="radio" name="base_contacts" value="Non — aucune base"> Non, aucune base constituée</label>
+      <label class="opt"><input type="radio" name="base_contacts" value="Oui, utilisée régulièrement"> Oui, structurée et utilisée régulièrement</label>
+      <label class="opt"><input type="radio" name="base_contacts" value="Oui, rarement exploitée"> Oui, mais rarement exploitée</label>
+      <label class="opt"><input type="radio" name="base_contacts" value="Partielle"> Quelques contacts épars</label>
+      <label class="opt"><input type="radio" name="base_contacts" value="Non"> Non, aucune base constituée</label>
     </div>
   </div>
-
-  <div class="field">
-    <label class="field-label">Votre niveau de maîtrise du digital (auto-évaluation)</label>
-    <div class="slider-wrap">
-      <div class="slider-labels"><span>Nul / Débutant</span><span>Expert</span></div>
-      <input type="range" id="maitrise_digital" min="1" max="10" value="4" oninput="updateSlider('maitrise_digital','sv_digital')">
-      <div class="slider-val" id="sv_digital">4 / 10</div>
+  <div class="field"><label class="field-label">Publicité payante (Meta Ads, Google Ads)</label>
+    <div class="options" id="pub_payante">
+      <label class="opt"><input type="radio" name="pub_payante" value="Oui, régulièrement"> Oui, régulièrement et ça fonctionne</label>
+      <label class="opt"><input type="radio" name="pub_payante" value="Oui, sans méthode"> Oui, de temps en temps sans méthode claire</label>
+      <label class="opt"><input type="radio" name="pub_payante" value="Non"> Non, jamais</label>
+      <label class="opt"><input type="radio" name="pub_payante" value="Essayé sans succès"> J'ai essayé, ça n'a pas marché</label>
     </div>
   </div>
-
-  <div class="nav">
-    <button class="btn-back" onclick="go(5,4)">←</button>
-    <button class="btn-next" onclick="go(5,6)">Continuer <span>→</span></button>
-  </div>
+  <div class="nav"><button class="btn-back" onclick="go(5,4)">←</button><button class="btn-next" onclick="go(5,6)">Continuer →</button></div>
 </div>
 
-<!-- SECTION 6 : VISION COURT TERME -->
 <div class="card" id="c6">
-  <div class="card-header">
-    <div class="card-tag">Étape 6 / 8 — Vision court terme</div>
-    <div class="card-title">Vos 12 prochains mois</div>
-    <div class="card-desc">Ce que vous voulez accomplir rapidement — vos objectifs concrets et réalistes.</div>
-  </div>
-
-  <div class="field">
-    <label class="field-label">Quels sont vos 3 objectifs prioritaires sur les 12 prochains mois ?
-      <span class="hint">Soyez aussi précis que possible — des chiffres si possible</span>
-    </label>
-    <textarea id="objectifs_ct" placeholder="Ex: 1. Augmenter mon CA de 20%&#10;2. Lancer une boutique en ligne&#10;3. Constituer une base de 300 clients email réguliers"></textarea>
-  </div>
-
-  <div class="field">
-    <label class="field-label">Vos principales priorités (plusieurs possibles)</label>
-    <div class="options" id="priorites_ct">
-      <label class="opt"><input type="checkbox" value="Trouver de nouveaux clients"> Trouver de nouveaux clients</label>
-      <label class="opt"><input type="checkbox" value="Fidéliser les clients existants"> Fidéliser les clients existants</label>
-      <label class="opt"><input type="checkbox" value="Augmenter le panier moyen"> Augmenter le panier moyen</label>
-      <label class="opt"><input type="checkbox" value="Développer la vente en ligne"> Développer la vente en ligne</label>
-      <label class="opt"><input type="checkbox" value="Améliorer la notoriété locale"> Améliorer la notoriété locale</label>
-      <label class="opt"><input type="checkbox" value="Structurer l'entreprise / les process"> Structurer l'entreprise / les process</label>
-      <label class="opt"><input type="checkbox" value="Recruter / agrandir l'équipe"> Recruter ou agrandir l'équipe</label>
-      <label class="opt"><input type="checkbox" value="Lancer un nouveau produit ou service"> Lancer un nouveau produit ou service</label>
+  <div class="card-tag">Étape 6 / 8 — Objectifs</div>
+  <div class="card-title">Vos 12 prochains mois</div>
+  <div class="card-desc">Ce que vous voulez accomplir concrètement.</div>
+  <div class="field"><label class="field-label">Vos 3 objectifs prioritaires<span class="hint">Des chiffres si possible</span></label><textarea id="objectifs" placeholder="Ex : 1. Augmenter mon CA de 20%&#10;2. Lancer une boutique en ligne&#10;3. Constituer une base de 300 clients email"></textarea></div>
+  <div class="field"><label class="field-label">Priorités concrètes (plusieurs possibles)</label>
+    <div class="options" id="priorites">
+      <label class="opt"><input type="checkbox" value="Nouveaux clients"> Trouver de nouveaux clients</label>
+      <label class="opt"><input type="checkbox" value="Fidélisation"> Fidéliser les clients existants</label>
+      <label class="opt"><input type="checkbox" value="Panier moyen"> Augmenter le panier moyen</label>
+      <label class="opt"><input type="checkbox" value="Vente en ligne"> Développer la vente en ligne</label>
+      <label class="opt"><input type="checkbox" value="Notoriété locale"> Améliorer la notoriété locale</label>
+      <label class="opt"><input type="checkbox" value="Nouveau produit"> Lancer un nouveau produit ou service</label>
     </div>
   </div>
-
-  <div class="field">
-    <label class="field-label">Qu'est-ce qui vous freine le plus aujourd'hui ?
-      <span class="hint">Le vrai blocage — pas la réponse poli</span>
-    </label>
-    <textarea id="freins" placeholder="Ex: Le manque de temps entre production et commerce. Ne pas savoir comment se différencier face aux grandes marques. Pas de budget marketing. Peur d'investir sans résultat garanti..."></textarea>
-  </div>
-
-  <div class="field">
-    <label class="field-label">Budget marketing / communication disponible par mois</label>
+  <div class="field"><label class="field-label">Ce qui vous freine le plus aujourd'hui</label><textarea id="freins" placeholder="Ex : Le manque de temps. Pas de budget. Peur d'investir sans résultat garanti…"></textarea></div>
+  <div class="field"><label class="field-label">Budget marketing mensuel disponible</label>
     <div class="options" id="budget">
-      <label class="opt"><input type="radio" name="budget" value="Moins de 100€"> Moins de 100€ / mois</label>
-      <label class="opt"><input type="radio" name="budget" value="100 à 300€"> 100 à 300€ / mois</label>
-      <label class="opt"><input type="radio" name="budget" value="300 à 600€"> 300 à 600€ / mois</label>
-      <label class="opt"><input type="radio" name="budget" value="600 à 1500€"> 600 à 1 500€ / mois</label>
-      <label class="opt"><input type="radio" name="budget" value="Plus de 1500€"> Plus de 1 500€ / mois</label>
+      <label class="opt"><input type="radio" name="budget" value="<100€"> Moins de 100 € / mois</label>
+      <label class="opt"><input type="radio" name="budget" value="100-300€"> 100 à 300 € / mois</label>
+      <label class="opt"><input type="radio" name="budget" value="300-600€"> 300 à 600 € / mois</label>
+      <label class="opt"><input type="radio" name="budget" value="600-1500€"> 600 à 1 500 € / mois</label>
+      <label class="opt"><input type="radio" name="budget" value=">1500€"> Plus de 1 500 € / mois</label>
     </div>
   </div>
-
-  <div class="nav">
-    <button class="btn-back" onclick="go(6,5)">←</button>
-    <button class="btn-next" onclick="go(6,7)">Continuer <span>→</span></button>
-  </div>
+  <div class="nav"><button class="btn-back" onclick="go(6,5)">←</button><button class="btn-next" onclick="go(6,7)">Continuer →</button></div>
 </div>
 
-<!-- SECTION 7 : VISION LONG TERME -->
 <div class="card" id="c7">
-  <div class="card-header">
-    <div class="card-tag">Étape 7 / 8 — Vision long terme</div>
-    <div class="card-title">Dans 3 à 5 ans, vous vous voyez où ?</div>
-    <div class="card-desc">La vision à long terme oriente toutes les décisions à court terme. C'est votre boussole.</div>
-  </div>
-
-  <div class="field">
-    <label class="field-label">Décrivez l'entreprise idéale dans 3 à 5 ans
-      <span class="hint">Laissez-vous aller — pas besoin d'être réaliste ici, juste honnête</span>
-    </label>
-    <textarea id="vision_lt" placeholder="Ex: Une marque reconnue dans toute la région Occitanie, avec un réseau de 5 points de vente et une boutique en ligne qui tourne en autonomie. Reconnu pour notre expertise et notre transparence. Une équipe de 8 personnes passionnées..."></textarea>
-  </div>
-
-  <div class="field">
-    <label class="field-label">Votre ambition de croissance à 5 ans</label>
+  <div class="card-tag">Étape 7 / 8 — Vision</div>
+  <div class="card-title">Dans 3 à 5 ans, vous vous voyez où ?</div>
+  <div class="card-desc">La vision long terme oriente toutes les décisions court terme.</div>
+  <div class="field"><label class="field-label">L'entreprise idéale dans 3 à 5 ans</label><textarea id="vision" placeholder="Ex : Une marque reconnue dans toute l'Occitanie, avec un réseau de 5 points de vente et une boutique en ligne autonome…"></textarea></div>
+  <div class="field"><label class="field-label">Ambition de croissance à 5 ans</label>
     <div class="options" id="ambition">
-      <label class="opt"><input type="radio" name="ambition" value="Stabiliser et sécuriser l'activité actuelle"> Stabiliser et sécuriser l'activité actuelle</label>
-      <label class="opt"><input type="radio" name="ambition" value="Croissance modérée (+10-30%)"> Croissance modérée (+10 à 30%)</label>
-      <label class="opt"><input type="radio" name="ambition" value="Forte croissance (doubler l'activité)"> Forte croissance (doubler l'activité)</label>
-      <label class="opt"><input type="radio" name="ambition" value="Transformation majeure du business model"> Transformation majeure du business model</label>
-      <label class="opt"><input type="radio" name="ambition" value="Expansion nationale ou internationale"> Expansion nationale ou internationale</label>
+      <label class="opt"><input type="radio" name="ambition" value="Stabiliser"> Stabiliser et sécuriser l'activité actuelle</label>
+      <label class="opt"><input type="radio" name="ambition" value="Croissance modérée"> Croissance modérée (+10 à 30%)</label>
+      <label class="opt"><input type="radio" name="ambition" value="Forte croissance"> Forte croissance (doubler l'activité)</label>
+      <label class="opt"><input type="radio" name="ambition" value="Transformation"> Transformation majeure du modèle</label>
     </div>
   </div>
-
-  <div class="field">
-    <label class="field-label">Quelles nouvelles opportunités envisagez-vous ?
-      <span class="hint">Nouveaux marchés, nouveaux produits, nouvelles façons de vendre...</span>
-    </label>
-    <textarea id="opportunites_lt" placeholder="Ex: Créer une gamme premium pour les épiceries fines parisiennes. Proposer des ateliers de découverte. Développer un abonnement mensuel. Exporter en Allemagne ou Belgique..."></textarea>
-  </div>
-
-  <div class="field">
-    <label class="field-label">Quels sont vos points forts sur lesquels construire l'avenir ?
-      <span class="hint">Vos vrais atouts — ce que personne d'autre ne peut faire aussi bien que vous</span>
-    </label>
-    <textarea id="points_forts" placeholder="Ex: Un savoir-faire unique transmis depuis 3 générations. Une communauté de clients très fidèles. Une localisation exceptionnelle. Une expertise reconnue sur notre marché de niche..."></textarea>
-  </div>
-
-  <div class="nav">
-    <button class="btn-back" onclick="go(7,6)">←</button>
-    <button class="btn-next" onclick="go(7,8)">Continuer <span>→</span></button>
-  </div>
+  <div class="field"><label class="field-label">Vos points forts sur lesquels construire l'avenir</label><textarea id="points_forts" placeholder="Ex : Un savoir-faire unique transmis depuis 3 générations. Une communauté de clients très fidèles…"></textarea></div>
+  <div class="nav"><button class="btn-back" onclick="go(7,6)">←</button><button class="btn-next" onclick="go(7,8)">Continuer →</button></div>
 </div>
 
-<!-- SECTION 8 : CONTACT & FIN -->
 <div class="card" id="c8">
-  <div class="card-header">
-    <div class="card-tag">Étape 8 / 8 — Contact</div>
-    <div class="card-title">Dernière étape — votre rapport vous attend</div>
-    <div class="card-desc">Entrez vos coordonnées pour recevoir votre diagnostic personnalisé immédiatement.</div>
-  </div>
-
+  <div class="card-tag">Étape 8 / 8 — Contact</div>
+  <div class="card-title">Votre rapport vous attend</div>
+  <div class="card-desc">Entrez vos coordonnées pour accéder à votre diagnostic.</div>
   <div class="g2">
-    <div class="field">
-      <label class="field-label">Votre prénom *</label>
-      <input type="text" id="contact_prenom" placeholder="Ex: Marie">
-    </div>
-    <div class="field">
-      <label class="field-label">Votre nom</label>
-      <input type="text" id="contact_nom" placeholder="Ex: Dupont">
-    </div>
+    <div class="field"><label class="field-label">Prénom *</label><input type="text" id="prenom" placeholder="Ex : Marie"></div>
+    <div class="field"><label class="field-label">Nom</label><input type="text" id="nom_contact" placeholder="Ex : Dupont"></div>
   </div>
-
-  <div class="field">
-    <label class="field-label">Votre email *</label>
-    <input type="email" id="contact_email" placeholder="vous@votreentreprise.fr">
+  <div class="field"><label class="field-label">Email *</label><input type="email" id="email" placeholder="vous@votreentreprise.fr"></div>
+  <div class="field"><label class="field-label">Téléphone (optionnel)</label><input type="tel" id="tel" placeholder="06 xx xx xx xx"></div>
+  <div class="field"><label class="field-label">Rôle</label>
+    <select id="role"><option value="">Choisir…</option><option>Dirigeant / Fondateur</option><option>Co-fondateur</option><option>Responsable marketing</option><option>Responsable commercial</option><option>Autre</option></select>
   </div>
-
-  <div class="field">
-    <label class="field-label">Votre téléphone (optionnel)</label>
-    <input type="tel" id="contact_tel" placeholder="06 xx xx xx xx">
-  </div>
-
-  <div class="field">
-    <label class="field-label">Votre rôle dans l'entreprise</label>
-    <select id="role">
-      <option value="">Choisir...</option>
-      <option>Dirigeant / Fondateur</option>
-      <option>Co-fondateur</option>
-      <option>Responsable marketing / communication</option>
-      <option>Responsable commercial</option>
-      <option>Autre</option>
-    </select>
-  </div>
-
-  <div class="field">
-    <label class="field-label">Y a-t-il quelque chose d'important à ajouter que le formulaire n'a pas couvert ?</label>
-    <textarea id="commentaire_libre" placeholder="Tout ce qui vous semble important pour comprendre votre situation et votre contexte..."></textarea>
-  </div>
-
-  <div class="nav">
-    <button class="btn-back" onclick="go(8,7)">←</button>
-    <button class="btn-submit" onclick="generer()">✦ Voir mon diagnostic →</button>
-  </div>
+  <div class="field"><label class="field-label">Quelque chose d'important que le formulaire n'a pas couvert ?</label><textarea id="commentaire" placeholder="Tout ce qui peut aider à comprendre votre situation…"></textarea></div>
+  <div class="nav"><button class="btn-back" onclick="go(8,7)">←</button><button class="btn-submit" onclick="generer('prospect')">Voir mon diagnostic →</button></div>
 </div>
 
-<!-- RAPPORT -->
-<div id="rapport">
+</div><!-- fin mode-prospect -->
 
+<!-- ========== MODE PILOTE ========== -->
+<div id="mode-pilote" style="display:none;">
+
+<div class="card active" id="p1">
+  <div class="card-tag">Étape 1 / 3 — Identité</div>
+  <div class="card-title">Informations sur le prospect</div>
+  <div class="card-desc">Les données de base avant l'analyse des liens publics.</div>
+  <div class="field"><label class="field-label">Nom de l'entreprise *</label><input type="text" id="p_nom" placeholder="Ex : Plomberie Martin"></div>
+  <div class="g2">
+    <div class="field"><label class="field-label">Secteur</label>
+      <select id="p_secteur"><option value="">Choisir…</option><option>Alimentation & Boissons artisanales</option><option>Agriculture & Producteurs locaux</option><option>Cosmétiques & Bien-être</option><option>Mode & Textile</option><option>Décoration & Artisanat</option><option>Restauration & Hôtellerie</option><option>Services aux entreprises</option><option>Commerce de détail</option><option>Bâtiment & Artisanat</option><option>Santé & Médical</option><option>Sport & Loisirs</option><option>Formation & Coaching</option><option>Immobilier</option><option>Autre</option></select>
+    </div>
+    <div class="field"><label class="field-label">Ville / Région</label><input type="text" id="p_ville" placeholder="Ex : Albi, Occitanie"></div>
+  </div>
+  <div class="g2">
+    <div class="field"><label class="field-label">Prénom du dirigeant</label><input type="text" id="p_dirigeant" placeholder="Ex : Stéphane"></div>
+    <div class="field"><label class="field-label">CA estimé</label>
+      <select id="p_ca"><option value="">Inconnu</option><option>Moins de 50 000 €</option><option>50 000 à 150 000 €</option><option>150 000 à 500 000 €</option><option>500 000 € à 1M€</option><option>Plus de 1M€</option></select>
+    </div>
+  </div>
+  <div class="nav"><button class="btn-next" onclick="goP(1,2)">Continuer →</button></div>
+</div>
+
+<div class="card" id="p2">
+  <div class="card-tag">Étape 2 / 3 — Liens publics</div>
+  <div class="card-title">Présence en ligne observable</div>
+  <div class="card-desc">Collez les URLs disponibles. Ce qui est vide, c'est déjà une information.</div>
+  <div class="field"><label class="field-label">Site web</label>
+    <div class="url-group"><div class="url-icon">🌐</div><input type="url" id="p_site" placeholder="https://www.entreprise.fr"></div>
+  </div>
+  <div class="field"><label class="field-label">LinkedIn</label>
+    <div class="url-group"><div class="url-icon">💼</div><input type="url" id="p_linkedin" placeholder="https://www.linkedin.com/company/…"></div>
+  </div>
+  <div class="field"><label class="field-label">Instagram</label>
+    <div class="url-group"><div class="url-icon">📷</div><input type="url" id="p_instagram" placeholder="https://www.instagram.com/…"></div>
+  </div>
+  <div class="field"><label class="field-label">Facebook / Page</label>
+    <div class="url-group"><div class="url-icon">📘</div><input type="url" id="p_facebook" placeholder="https://www.facebook.com/…"></div>
+  </div>
+  <div class="field"><label class="field-label">YouTube</label>
+    <div class="url-group"><div class="url-icon">▶️</div><input type="url" id="p_youtube" placeholder="https://www.youtube.com/@…"></div>
+  </div>
+  <div class="field"><label class="field-label">Bibliothèque Meta Ads<span class="hint">facebook.com/ads/library — recherchez le nom de l'entreprise</span></label>
+    <div class="url-group"><div class="url-icon">📣</div><input type="url" id="p_metaads" placeholder="https://www.facebook.com/ads/library/?…"></div>
+  </div>
+  <div class="field"><label class="field-label">Landing page post-pub</label>
+    <div class="url-group"><div class="url-icon">🎯</div><input type="url" id="p_lp" placeholder="https://…"></div>
+  </div>
+  <div class="nav"><button class="btn-back" onclick="goP(2,1)">←</button><button class="btn-next" onclick="goP(2,3)">Continuer →</button></div>
+</div>
+
+<div class="card" id="p3">
+  <div class="card-tag">Étape 3 / 3 — Observations</div>
+  <div class="card-title">Ce que vous avez observé</div>
+  <div class="card-desc">Vos notes d'analyse — ce qui saute aux yeux en regardant leur présence.</div>
+  <div class="field"><label class="field-label">État du site web</label>
+    <div class="options" id="p_etat_site">
+      <label class="opt"><input type="radio" name="p_etat_site" value="Absent"> Absent — pas de site</label>
+      <label class="opt"><input type="radio" name="p_etat_site" value="Faible"> Faible — existe mais inefficace</label>
+      <label class="opt"><input type="radio" name="p_etat_site" value="Correct"> Correct — fonctionnel, sans plus</label>
+      <label class="opt"><input type="radio" name="p_etat_site" value="Bon"> Bon — travaillé et orienté résultat</label>
+    </div>
+  </div>
+  <div class="field"><label class="field-label">Activité réseaux sociaux</label>
+    <div class="options" id="p_etat_rs">
+      <label class="opt"><input type="radio" name="p_etat_rs" value="Absent"> Absent — aucune présence</label>
+      <label class="opt"><input type="radio" name="p_etat_rs" value="Inactif"> Présent mais inactif (dernière pub > 3 mois)</label>
+      <label class="opt"><input type="radio" name="p_etat_rs" value="Irrégulier"> Irrégulier — quelques posts de temps en temps</label>
+      <label class="opt"><input type="radio" name="p_etat_rs" value="Actif"> Actif et régulier</label>
+    </div>
+  </div>
+  <div class="field"><label class="field-label">Publicité Meta Ads</label>
+    <div class="options" id="p_etat_ads">
+      <label class="opt"><input type="radio" name="p_etat_ads" value="Absent"> Aucune pub détectée</label>
+      <label class="opt"><input type="radio" name="p_etat_ads" value="Faible"> Quelques pubs, qualité faible</label>
+      <label class="opt"><input type="radio" name="p_etat_ads" value="Présent"> Pubs actives, qualité correcte</label>
+      <label class="opt"><input type="radio" name="p_etat_ads" value="Fort"> Pubs bien ciblées, visuels soignés</label>
+    </div>
+  </div>
+  <div class="field"><label class="field-label">Réputation Google / avis</label>
+    <div class="options" id="p_etat_avis">
+      <label class="opt"><input type="radio" name="p_etat_avis" value="Absent"> Pas de fiche GMB ou aucun avis</label>
+      <label class="opt"><input type="radio" name="p_etat_avis" value="Faible"> Peu d'avis, note moyenne</label>
+      <label class="opt"><input type="radio" name="p_etat_avis" value="Bon"> Bonne note, avis réguliers</label>
+      <label class="opt"><input type="radio" name="p_etat_avis" value="Excellent"> Excellente réputation, très actif</label>
+    </div>
+  </div>
+  <div class="field"><label class="field-label">Observations libres<span class="hint">Ce qu'on peut dire au premier call. Ce qui saute aux yeux.</span></label><textarea id="p_obs" placeholder="Ex : Site pas touché depuis 2021. 3 pubs Meta actives mais accroches génériques. 4,8 étoiles Google mais ne répond pas aux avis. Coffret cadeau parfait pour une campagne de Noël…"></textarea></div>
+  <div class="field"><label class="field-label">Levier prioritaire identifié</label>
+    <div class="options" id="p_levier">
+      <label class="opt"><input type="radio" name="p_levier" value="Email / fidélisation"> Email / fidélisation — base inexploitée</label>
+      <label class="opt"><input type="radio" name="p_levier" value="Réseaux sociaux"> Réseaux sociaux — présence à construire ou relancer</label>
+      <label class="opt"><input type="radio" name="p_levier" value="Publicité payante"> Publicité payante — pas de trafic acquisition</label>
+      <label class="opt"><input type="radio" name="p_levier" value="Site web"> Site web — à refaire ou optimiser</label>
+      <label class="opt"><input type="radio" name="p_levier" value="Positionnement"> Positionnement — message flou ou inexistant</label>
+      <label class="opt"><input type="radio" name="p_levier" value="Référencement local"> Référencement local — GMB à travailler</label>
+    </div>
+  </div>
+  <div class="nav"><button class="btn-back" onclick="goP(3,2)">←</button><button class="btn-submit" onclick="generer('pilote')">Générer le rapport →</button></div>
+</div>
+
+</div><!-- fin mode-pilote -->
+
+<!-- ========== RAPPORT ========== -->
+<div id="rapport">
   <div class="r-hero">
     <div class="r-hero-top">
-      <div class="r-hero-info">
-        <h2 id="r-nom">Diagnostic Marketing</h2>
-        <p id="r-date">—</p>
-      </div>
-      <div class="r-score-big">
-        <div class="r-score-circle" id="r-cercle">—</div>
-        <div class="r-score-label">Score global</div>
-      </div>
+      <div class="r-hero-info"><h2 id="r-nom">Diagnostic</h2><p id="r-date">—</p></div>
+      <div><div class="r-score-circle" id="r-cercle">—</div><div class="r-score-label">Score global</div></div>
     </div>
-
     <div class="score-bars" id="r-score-bars"></div>
   </div>
-
-  <!-- Blocs dynamiques -->
-  <div class="r-bloc" id="r-identite">
-    <div class="r-bloc-head">
-      <div class="r-bloc-icon" style="background:#eff6ff;">🏢</div>
-      <div class="r-bloc-title">Identité & positionnement</div>
-    </div>
+  <div class="r-bloc" id="r-identite"><div class="r-bloc-head"><div class="r-bloc-icon" style="background:var(--warm);">🏢</div><div class="r-bloc-title">Identité & positionnement</div></div></div>
+  <div class="r-bloc" id="r-digital"><div class="r-bloc-head"><div class="r-bloc-icon" style="background:var(--warm);">💻</div><div class="r-bloc-title">Présence digitale</div></div></div>
+  <div class="r-bloc" id="r-com"><div class="r-bloc-head"><div class="r-bloc-icon" style="background:var(--warm);">📢</div><div class="r-bloc-title">Communication & acquisition</div></div></div>
+  <div class="r-bloc" id="r-email"><div class="r-bloc-head"><div class="r-bloc-icon" style="background:var(--warm);">📧</div><div class="r-bloc-title">Email & fidélisation</div></div></div>
+  <div class="r-bloc" id="r-opps"><div class="r-bloc-head"><div class="r-bloc-icon" style="background:var(--green-soft);">✦</div><div class="r-bloc-title">Opportunités identifiées</div></div></div>
+  <div class="r-bloc" id="r-etapes"><div class="r-bloc-head"><div class="r-bloc-icon" style="background:var(--warm);">📋</div><div class="r-bloc-title">Prochaines étapes</div></div></div>
+  <div class="r-signature">
+    <strong>Fabien Granier</strong>
+    <span>Pilote Marketing · Copy House · Tarn, Occitanie</span><br>
+    <a href="mailto:granierfabien@hotmail.fr" class="r-cta-link">Réserver un appel gratuit →</a>
   </div>
-
-  <div class="r-bloc" id="r-marche">
-    <div class="r-bloc-head">
-      <div class="r-bloc-icon" style="background:#ecfdf5;">🎯</div>
-      <div class="r-bloc-title">Marché & clients</div>
-    </div>
-  </div>
-
-  <div class="r-bloc" id="r-com">
-    <div class="r-bloc-head">
-      <div class="r-bloc-icon" style="background:#fffbeb;">📢</div>
-      <div class="r-bloc-title">Communication actuelle</div>
-    </div>
-  </div>
-
-  <div class="r-bloc" id="r-dig">
-    <div class="r-bloc-head">
-      <div class="r-bloc-icon" style="background:#f5f3ff;">💻</div>
-      <div class="r-bloc-title">Présence digitale</div>
-    </div>
-  </div>
-
-  <div class="r-bloc" id="r-vision">
-    <div class="r-bloc-head">
-      <div class="r-bloc-icon" style="background:#fef2f2;">🚀</div>
-      <div class="r-bloc-title">Vision & ambitions</div>
-    </div>
-  </div>
-
-  <div class="r-bloc" id="r-opps">
-    <div class="r-bloc-head">
-      <div class="r-bloc-icon" style="background:#ecfdf5;">✨</div>
-      <div class="r-bloc-title">Opportunités identifiées</div>
-    </div>
-  </div>
-
-  <div class="r-bloc" id="r-prochaines-etapes">
-    <div class="r-bloc-head">
-      <div class="r-bloc-icon" style="background:#eff6ff;">📋</div>
-      <div class="r-bloc-title">Prochaines étapes recommandées</div>
-    </div>
-  </div>
-
   <div class="r-actions">
-    <button class="btn-print-r" onclick="window.print()">🖨️ Imprimer / Sauvegarder en PDF</button>
+    <button class="btn-print-r" onclick="window.print()">🖨️ Imprimer / PDF</button>
     <button class="btn-new" onclick="location.reload()">↩ Nouveau diagnostic</button>
   </div>
+</div>
 
-</div>
-</div>
+</div><!-- fin container -->
 
 <script>
-let cur = 1;
-const total = 8;
+let curMode='prospect', curStep=1, curPStep=1;
 
-function updateSteps(n) {
-  for (let i = 1; i <= total; i++) {
-    const s = document.getElementById('s'+i);
-    if (i < n) s.className = 'step done';
-    else if (i === n) s.className = 'step active';
-    else s.className = 'step';
+function setMode(m){
+  curMode=m;
+  document.getElementById('mode-prospect').style.display=m==='prospect'?'block':'none';
+  document.getElementById('mode-pilote').style.display=m==='pilote'?'block':'none';
+  document.getElementById('btn-prospect').classList.toggle('active',m==='prospect');
+  document.getElementById('btn-pilote').classList.toggle('active',m==='pilote');
+  buildBar(); window.scrollTo(0,0);
+}
+
+function buildBar(){
+  const total=curMode==='prospect'?8:3;
+  const cur=curMode==='prospect'?curStep:curPStep;
+  const wrap=document.getElementById('steps-bar');
+  wrap.innerHTML='';
+  for(let i=1;i<=total;i++){
+    const s=document.createElement('div');
+    s.className='step-bar'+(i<cur?' done':i===cur?' active':'');
+    wrap.appendChild(s);
   }
 }
 
-function go(from, to) {
+function go(from,to){
   document.getElementById('c'+from).classList.remove('active');
   document.getElementById('c'+to).classList.add('active');
-  cur = to;
-  updateSteps(to);
-  window.scrollTo(0, 0);
+  curStep=to; buildBar(); window.scrollTo(0,0);
 }
-
-function updateSlider(id, valId) {
-  const v = document.getElementById(id).value;
-  document.getElementById(valId).textContent = v + ' / 10';
+function goP(from,to){
+  document.getElementById('p'+from).classList.remove('active');
+  document.getElementById('p'+to).classList.add('active');
+  curPStep=to; buildBar(); window.scrollTo(0,0);
 }
-
-function getChecked(id) {
-  return Array.from(document.querySelectorAll('#'+id+' input:checked')).map(i => i.value);
+function updateSlider(id,valId){
+  document.getElementById(valId).textContent=document.getElementById(id).value+' / 10';
 }
+function getChecked(id){return Array.from(document.querySelectorAll('#'+id+' input:checked')).map(i=>i.value);}
+function getRadio(name){const el=document.querySelector('input[name="'+name+'"]:checked');return el?el.value:null;}
+function v(id){const el=document.getElementById(id);return el?(el.value.trim()||null):null;}
 
-function getRadio(name) {
-  const el = document.querySelector('input[name="'+name+'"]:checked');
-  return el ? el.value : null;
-}
-
-function v(id) {
-  const el = document.getElementById(id);
-  return el ? (el.value.trim() || null) : null;
-}
-
-function addRow(bloc, key, val) {
-  if (!val) return;
-  const d = document.createElement('div');
-  d.className = 'r-row';
-  d.innerHTML = '<span class="r-row-key">'+key+'</span><span class="r-row-val">'+val+'</span>';
+function addRow(bloc,key,val){
+  if(!val)return;
+  const d=document.createElement('div');d.className='r-row';
+  d.innerHTML='<span class="r-row-key">'+key+'</span><span class="r-row-val">'+val+'</span>';
   bloc.appendChild(d);
 }
-
-function addInsight(bloc, icon, text, type) {
-  const d = document.createElement('div');
-  d.className = 'r-insight ' + (type||'info');
-  d.innerHTML = '<span class="r-insight-icon">'+icon+'</span><span>'+text+'</span>';
+function addInsight(bloc,icon,text,type){
+  const d=document.createElement('div');d.className='r-insight '+(type||'warm');
+  d.innerHTML='<span class="r-insight-icon">'+icon+'</span><span>'+text+'</span>';
   bloc.appendChild(d);
 }
-
-function addOppCard(bloc, priorite, titre, desc, color) {
-  let grid = bloc.querySelector('.opp-grid');
-  if (!grid) { grid = document.createElement('div'); grid.className = 'opp-grid'; bloc.appendChild(grid); }
-  const c = document.createElement('div');
-  c.className = 'opp-card';
-  c.innerHTML = '<div class="opp-priority" style="color:'+color+';">'+priorite+'</div><div class="opp-title">'+titre+'</div><div class="opp-desc">'+desc+'</div>';
-  grid.appendChild(c);
+function addLink(bloc,label,url,icon){
+  if(!url)return;
+  let wrap=bloc.querySelector('.links-wrap');
+  if(!wrap){wrap=document.createElement('div');wrap.className='links-wrap';wrap.style.cssText='display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px;';bloc.appendChild(wrap);}
+  const a=document.createElement('a');a.className='r-link';a.href=url;a.target='_blank';a.rel='noopener';
+  a.textContent=(icon?icon+' ':'')+label;wrap.appendChild(a);
 }
-
-function addEtape(bloc, num, titre, desc) {
-  const d = document.createElement('div');
-  d.style.cssText = 'display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #f3f4f6;align-items:flex-start;';
-  d.innerHTML = '<div style="width:28px;height:28px;border-radius:50%;background:#0d0d0d;color:white;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;font-family:Syne,sans-serif;">'+num+'</div><div><div style="font-size:13px;font-weight:600;color:#0d0d0d;margin-bottom:2px;">'+titre+'</div><div style="font-size:12px;color:#6b7280;line-height:1.45;">'+desc+'</div></div>';
-  bloc.appendChild(d);
+function addMissing(bloc,label){
+  let wrap=bloc.querySelector('.miss-wrap');
+  if(!wrap){wrap=document.createElement('div');wrap.className='miss-wrap';wrap.style.cssText='display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px;';bloc.appendChild(wrap);}
+  const s=document.createElement('span');s.className='tag-pill pill-red';s.textContent=label+' — absent';wrap.appendChild(s);
 }
-
-function scoreFill(pct, colors) {
-  const bar = document.createElement('div');
-  bar.className = 'score-bar-fill';
-  bar.style.cssText = 'width:0%;background:'+colors+';';
-  setTimeout(() => bar.style.width = pct+'%', 100);
-  return bar;
+function addOpp(bloc,p,t,d,c){
+  let grid=bloc.querySelector('.opp-grid');
+  if(!grid){grid=document.createElement('div');grid.className='opp-grid';bloc.appendChild(grid);}
+  const card=document.createElement('div');card.className='opp-card';
+  card.innerHTML='<div class="opp-priority" style="color:'+c+';">'+p+'</div><div class="opp-title">'+t+'</div><div class="opp-desc">'+d+'</div>';
+  grid.appendChild(card);
 }
-
-function generer() {
-  // Cacher formulaire
-  for (let i = 1; i <= 8; i++) document.getElementById('c'+i).classList.remove('active');
-
-  const rapport = document.getElementById('rapport');
-  rapport.style.display = 'block';
-
-  // Valeurs
-  const nom = v('nom') || 'Votre entreprise';
-  const secteur = v('secteur');
-  const ville = v('ville');
-  const anciennete = v('anciennete');
-  const taille = v('taille');
-  const ca = v('ca');
-  const activite = v('activite');
-
-  const promesse = v('promesse');
-  const diff = v('differentiation');
-  const bao = v('bouche_a_oreille');
-  const valeurs = v('valeurs');
-  const posPrix = getRadio('pos_prix');
-
-  const clientIdeal = v('client_ideal');
-  const pbClient = v('probleme_client');
-  const objections = v('objections');
-  const marchGeo = getRadio('marche_geo');
-  const concurrence = getRadio('concurrence');
-
-  const canauxCom = getChecked('canaux_com');
-  const satisfCom = v('satisfaction_com') || '5';
-  const manqueCom = v('manque_com');
-  const arretCom = getRadio('arret_com');
-
-  const presenceWeb = getRadio('presence_web');
-  const partDigital = getRadio('part_digital');
-  const baseContacts = getRadio('base_contacts');
-  const maitriseDigital = v('maitrise_digital') || '4';
-
-  const objectifsCt = v('objectifs_ct');
-  const prioritesCt = getChecked('priorites_ct');
-  const freins = v('freins');
-  const budget = getRadio('budget');
-
-  const visionLt = v('vision_lt');
-  const ambition = getRadio('ambition');
-  const oppsLt = v('opportunites_lt');
-  const pointsForts = v('points_forts');
-
-  const prenom = v('contact_prenom') || '';
-  const cNom = v('contact_nom') || '';
-  const email = v('contact_email');
-  const tel = v('contact_tel');
-  const role = v('role');
-  const commentaire = v('commentaire_libre');
-
-  // SCORE
-  let score = 0;
-  let scoreMax = 0;
-
-  // Com (0-25)
-  scoreMax += 25;
-  const satCom = parseInt(satisfCom);
-  score += Math.round((satCom / 10) * 15);
-  if (canauxCom.length >= 3) score += 10;
-  else if (canauxCom.length >= 2) score += 5;
-
-  // Digital (0-25)
-  scoreMax += 25;
-  const matD = parseInt(maitriseDigital);
-  score += Math.round((matD / 10) * 10);
-  if (presenceWeb === 'Site e-commerce complet') score += 15;
-  else if (presenceWeb === 'Site vitrine') score += 8;
-  else if (presenceWeb === 'Réseaux sociaux seulement') score += 4;
-  if (baseContacts && baseContacts.includes('structurée')) score += 5;
-  else if (baseContacts && baseContacts.includes('rarement')) score += 3;
-
-  // Positionnement (0-25)
-  scoreMax += 25;
-  if (promesse && promesse.length > 30) score += 8;
-  if (diff && diff.length > 30) score += 9;
-  if (valeurs) score += 4;
-  if (bao && bao.length > 20) score += 4;
-
-  // Vision (0-25)
-  scoreMax += 25;
-  if (visionLt && visionLt.length > 30) score += 10;
-  if (ambition) score += 5;
-  if (oppsLt && oppsLt.length > 20) score += 5;
-  if (pointsForts && pointsForts.length > 20) score += 5;
-
-  const scorePct = Math.round((score / scoreMax) * 100);
-
-  // HERO RAPPORT
-  document.getElementById('r-nom').textContent = nom;
-  const now = new Date();
-  document.getElementById('r-date').textContent = 'Diagnostic du ' + now.toLocaleDateString('fr-FR', { day:'numeric', month:'long', year:'numeric' }) + (prenom ? ' · ' + prenom + ' ' + cNom : '') + (role ? ' · ' + role : '');
-
-  const cercle = document.getElementById('r-cercle');
-  cercle.textContent = scorePct + '%';
-  if (scorePct < 40) cercle.style.background = 'linear-gradient(135deg,#dc2626,#b91c1c)';
-  else if (scorePct < 65) cercle.style.background = 'linear-gradient(135deg,#d97706,#b45309)';
-  else cercle.style.background = 'linear-gradient(135deg,#059669,#047857)';
-
-  // SCORE BARS
-  const barsData = [
-    { label: 'Communication', pct: Math.round((parseInt(satisfCom)/10)*100), col: '#60a5fa' },
-    { label: 'Digital', pct: Math.round((parseInt(maitriseDigital)/10)*100), col: '#a78bfa' },
-    { label: 'Positionnement', pct: promesse && diff ? 80 : promesse || diff ? 50 : 25, col: '#34d399' },
-    { label: 'Vision', pct: visionLt && ambition ? 85 : visionLt || ambition ? 55 : 30, col: '#f59e0b' },
-  ];
-
-  const barsContainer = document.getElementById('r-score-bars');
-  barsData.forEach(b => {
-    const w = document.createElement('div');
-    w.className = 'score-bar-item';
-    w.innerHTML = '<div class="score-bar-label"><span>'+b.label+'</span><span>'+b.pct+'%</span></div><div class="score-bar-track"></div>';
-    const track = w.querySelector('.score-bar-track');
-    const fill = scoreFill(b.pct, b.col);
-    track.appendChild(fill);
-    barsContainer.appendChild(w);
+function addEtape(bloc,num,t,d){
+  const el=document.createElement('div');
+  el.style.cssText='display:flex;gap:12px;padding:11px 0;border-bottom:1px solid var(--cream-deep);align-items:flex-start;';
+  el.innerHTML='<div style="width:26px;height:26px;border-radius:50%;background:var(--charcoal);color:var(--cream);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;font-family:var(--font-heading);">'+num+'</div><div><div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:2px;font-family:var(--font-heading);">'+t+'</div><div style="font-size:12px;color:var(--text-light);line-height:1.5;">'+d+'</div></div>';
+  bloc.appendChild(el);
+}
+function scoreFill(pct,col){
+  const b=document.createElement('div');b.className='score-bar-fill';b.style.cssText='width:0%;background:'+col+';';
+  setTimeout(()=>b.style.width=pct+'%',100);return b;
+}
+function addBars(data){
+  const wrap=document.getElementById('r-score-bars');
+  data.forEach(b=>{
+    const w=document.createElement('div');
+    w.innerHTML='<div class="score-bar-label"><span>'+b.l+'</span><span>'+b.p+'%</span></div><div class="score-bar-track"></div>';
+    w.querySelector('.score-bar-track').appendChild(scoreFill(b.p,b.c));
+    wrap.appendChild(w);
   });
-
-  // BLOC IDENTITÉ
-  const ri = document.getElementById('r-identite');
-  addRow(ri, 'Secteur', secteur);
-  addRow(ri, 'Localisation', ville);
-  addRow(ri, 'Ancienneté', anciennete);
-  addRow(ri, 'Équipe', taille);
-  addRow(ri, 'CA estimé', ca);
-  addRow(ri, 'Positionnement prix', posPrix);
-  addRow(ri, 'Valeurs', valeurs);
-  if (activite) addInsight(ri, '📝', activite, 'info');
-  if (promesse) addInsight(ri, '✨', '<strong>Promesse :</strong> ' + promesse, 'info');
-  if (diff) addInsight(ri, '🏆', '<strong>Différenciation :</strong> ' + diff, 'success');
-  if (!diff || diff.length < 30) addInsight(ri, '⚠️', 'La différenciation n\'est pas encore clairement articulée. C\'est souvent le premier levier à travailler — elle conditionne tous vos messages marketing.', 'warning');
-  if (bao) addInsight(ri, '💬', '<strong>Comment vos clients vous présentent :</strong> ' + bao, 'purple');
-
-  // BLOC MARCHÉ
-  const rm = document.getElementById('r-marche');
-  addRow(rm, 'Zone géographique', marchGeo);
-  addRow(rm, 'Concurrence', concurrence);
-  if (clientIdeal) addInsight(rm, '👤', '<strong>Client idéal :</strong> ' + clientIdeal, 'info');
-  if (pbClient) addInsight(rm, '🎯', '<strong>Problème / désir principal :</strong> ' + pbClient, 'success');
-  if (objections) addInsight(rm, '🤔', '<strong>Objections à traiter :</strong> ' + objections, 'warning');
-  if (!clientIdeal || clientIdeal.length < 40) addInsight(rm, '⚠️', 'La description du client idéal est vague. Un persona précis est la base de toute communication efficace.', 'warning');
-
-  // BLOC COM
-  const rc = document.getElementById('r-com');
-  if (canauxCom.length > 0) {
-    const tags = document.createElement('div');
-    tags.style.marginBottom = '10px';
-    canauxCom.forEach(c => {
-      const t = document.createElement('span');
-      t.className = 'tag-pill pill-blue';
-      t.textContent = c;
-      tags.appendChild(t);
-    });
-    rc.appendChild(tags);
-  }
-  addRow(rc, 'Satisfaction com.', satisfCom + ' / 10');
-  addRow(rc, 'Sans communication', arretCom);
-  if (manqueCom) addInsight(rc, '💡', '<strong>Manque identifié :</strong> ' + manqueCom, 'warning');
-  if (arretCom === 'On disparaît') addInsight(rc, '🔴', 'Votre activité dépend entièrement de votre visibilité permanente. C\'est un risque majeur. L\'objectif : construire des actifs marketing (base email, SEO, fidélisation) qui travaillent pour vous même sans activité régulière.', 'danger');
-  if (canauxCom.includes('Aucun — peu ou pas de communication active')) addInsight(rc, '🔴', 'Communication quasi-inexistante. C\'est à la fois un risque et une opportunité massive — le moindre effort aura un impact fort.', 'danger');
-  if (parseInt(satisfCom) <= 4) addInsight(rc, '⚠️', 'Satisfaction communication faible. Des améliorations rapides sont possibles sans budget important.', 'warning');
-
-  // BLOC DIGITAL
-  const rd = document.getElementById('r-dig');
-  addRow(rd, 'Présence web', presenceWeb);
-  addRow(rd, 'Part CA digital', partDigital);
-  addRow(rd, 'Base contacts', baseContacts);
-  addRow(rd, 'Maîtrise digital', maitriseDigital + ' / 10');
-
-  if (presenceWeb === 'Aucune présence digitale') addInsight(rd, '🔴', 'Aucune présence en ligne. En 2025, c\'est invisible pour une large partie de vos clients potentiels. Priorité absolue.', 'danger');
-  if (partDigital === '0%' || partDigital === 'Moins de 10%') addInsight(rd, '🚀', 'Le digital représente moins de 10% de votre CA — mais c\'est un levier à très fort potentiel avec un investissement modéré.', 'success');
-  if (baseContacts === 'Non — aucune base') addInsight(rd, '⚠️', 'Aucune base de contacts. Construire une liste email qualifiée est l\'un des actifs les plus précieux pour votre croissance à long terme.', 'warning');
-  if (baseContacts && baseContacts.includes('rarement')) addInsight(rd, '💡', 'Vous avez une base email mais ne l\'exploitez pas. C\'est de la croissance dormante à activer.', 'info');
-
-  // BLOC VISION
-  const rv = document.getElementById('r-vision');
-  addRow(rv, 'Ambition 5 ans', ambition);
-  addRow(rv, 'Budget mensuel', budget);
-  if (visionLt) addInsight(rv, '🔭', '<strong>Vision long terme :</strong> ' + visionLt, 'purple');
-  if (oppsLt) addInsight(rv, '🌱', '<strong>Opportunités envisagées :</strong> ' + oppsLt, 'success');
-  if (pointsForts) addInsight(rv, '💪', '<strong>Points forts à capitaliser :</strong> ' + pointsForts, 'info');
-  if (objectifsCt) addInsight(rv, '🎯', '<strong>Objectifs 12 mois :</strong> ' + objectifsCt, 'info');
-  if (freins) addInsight(rv, '🧱', '<strong>Principaux freins :</strong> ' + freins, 'warning');
-  if (commentaire) addInsight(rv, '📝', commentaire, 'info');
-
-  // OPPORTUNITÉS
-  const ro = document.getElementById('r-opps');
-  const oppsArr = [];
-
-  if (!diff || diff.length < 30) oppsArr.push({ priorite: '🔥 PRIORITÉ 1', titre: 'Clarifier le positionnement', desc: 'Définir ce qui vous rend unique et construire tous vos messages autour de ça.', color: '#dc2626' });
-  if (presenceWeb === 'Aucune présence digitale' || presenceWeb === 'Réseaux sociaux seulement') oppsArr.push({ priorite: '🔥 PRIORITÉ', titre: 'Créer un site web', desc: 'Une présence professionnelle en ligne — point d\'ancrage pour tout le reste.', color: '#dc2626' });
-  if (baseContacts === 'Non — aucune base' || (baseContacts && baseContacts.includes('rarement'))) oppsArr.push({ priorite: '⚡ QUICK WIN', titre: 'Base email à activer', desc: 'Collecter ou réactiver une liste clients — ROI immédiat avec peu d\'investissement.', color: '#d97706' });
-  if (partDigital === '0%' || partDigital === 'Moins de 10%') oppsArr.push({ priorite: '📈 CROISSANCE', titre: 'Développer le canal digital', desc: 'Votre CA digital est très faible — fort potentiel de croissance avec une stratégie ciblée.', color: '#059669' });
-  if (arretCom === 'On disparaît' || arretCom === 'Forte baisse') oppsArr.push({ priorite: '🛡️ RÉSILIENCE', titre: 'Actifs marketing durables', desc: 'Réduire la dépendance à la communication permanente via SEO, email, fidélisation.', color: '#7c3aed' });
-  if (concurrence === 'Forte — marché saturé') oppsArr.push({ priorite: '🎯 DIFFÉRENCIATION', titre: 'Renforcer la niche', desc: 'Marché concurrentiel — l\'ultra-spécialisation ou le storytelling fort peuvent vous démarquer.', color: '#2563eb' });
-  if (!clientIdeal || clientIdeal.length < 40) oppsArr.push({ priorite: '🧭 FONDATION', titre: 'Définir le persona précis', desc: 'Sans client idéal clair, votre communication touche tout le monde — donc personne.', color: '#d97706' });
-  if (oppsLt && oppsLt.length > 20) oppsArr.push({ priorite: '🌱 LONG TERME', titre: 'Exploiter les nouvelles opportunités', desc: oppsLt.substring(0, 80) + (oppsLt.length > 80 ? '...' : ''), color: '#059669' });
-
-  if (oppsArr.length === 0) {
-    addInsight(ro, '✅', 'Situation solide — les opportunités de croissance se situent dans l\'optimisation et la scalabilité de ce qui fonctionne déjà.', 'success');
-  } else {
-    oppsArr.forEach(o => addOppCard(ro, o.priorite, o.titre, o.desc, o.color));
-  }
-
-  // PROCHAINES ÉTAPES
-  const rp = document.getElementById('r-prochaines-etapes');
-  let etapes = [];
-
-  if (!diff || diff.length < 30) etapes.push({ titre: 'Travailler votre différenciation', desc: '1h de réflexion avec vos meilleurs clients pour identifier ce qui vous rend vraiment unique.' });
-  if (presenceWeb === 'Aucune présence digitale') etapes.push({ titre: 'Créer une présence web minimale', desc: 'Même une page simple avec vos coordonnées, votre histoire et vos produits fait une différence énorme.' });
-  if (baseContacts === 'Non — aucune base') etapes.push({ titre: 'Lancer la collecte email', desc: 'Un formulaire simple sur votre site ou en caisse + une raison de s\'inscrire.' });
-  if (baseContacts && baseContacts.includes('rarement')) etapes.push({ titre: 'Réactiver votre base email dormante', desc: 'Envoyer 1 email par mois minimum — actualité, conseil, histoire. Le retour sur investissement est immédiat.' });
-  if (parseInt(satisfCom) <= 5) etapes.push({ titre: 'Définir 1 canal de communication principal', desc: 'Mieux vaut exceller sur un canal que d\'être médiocre sur cinq. Choisissez celui où vos clients sont.' });
-  etapes.push({ titre: 'Poser votre vision sur papier', desc: 'Un document d\'une page : qui vous êtes, pour qui, pourquoi, et où vous voulez aller. C\'est votre boussole.' });
-
-  etapes.forEach((e, i) => addEtape(rp, i+1, e.titre, e.desc));
-
-  // Contact en bas
-  if (email || tel) {
-    addInsight(rp, '📬', 'Contact : ' + [prenom + ' ' + cNom, email, tel].filter(Boolean).join(' · '), 'info');
-  }
-
-  updateSteps(9);
-  window.scrollTo(0, 0);
+}
+function setCercle(pct){
+  const el=document.getElementById('r-cercle');el.textContent=pct+'%';
+  el.style.background=pct<40?'linear-gradient(135deg,var(--red),#b91c1c)':pct<65?'linear-gradient(135deg,var(--orange),#b45309)':'linear-gradient(135deg,var(--green),#047857)';
 }
 
-updateSteps(1);
+function generer(mode){
+  document.getElementById('mode-prospect').style.display='none';
+  document.getElementById('mode-pilote').style.display='none';
+  document.getElementById('rapport').style.display='block';
+  mode==='pilote'?genererPilote():genererProspect();
+  window.scrollTo(0,0);
+}
+
+function genererProspect(){
+  const nom=v('nom')||'Votre entreprise';
+  const secteur=v('secteur'),ville=v('ville'),anciennete=v('anciennete'),taille=v('taille'),ca=v('ca');
+  const activite=v('activite'),promesse=v('promesse'),diff=v('diff'),bao=v('bao');
+  const posPrix=getRadio('pos_prix'),clientIdeal=v('client_ideal'),pbClient=v('pb_client'),objections=v('objections'),marchGeo=getRadio('marche_geo');
+  const canauxCom=getChecked('canaux_com'),satCom=parseInt(v('sat_com')||'5'),manqueCom=v('manque_com'),arretCom=getRadio('arret_com');
+  const presenceWeb=getRadio('presence_web'),partDigital=getRadio('part_digital'),baseContacts=getRadio('base_contacts'),pubPayante=getRadio('pub_payante');
+  const objectifs=v('objectifs'),freins=v('freins'),budget=getRadio('budget');
+  const vision=v('vision'),ambition=getRadio('ambition'),pointsForts=v('points_forts');
+  const prenom=v('prenom')||'',nomContact=v('nom_contact')||'',email=v('email'),commentaire=v('commentaire');
+
+  // Score
+  let s=0;
+  s+=Math.round((satCom/10)*20);
+  if(canauxCom.length>=3)s+=10;else if(canauxCom.length>=2)s+=5;
+  if(presenceWeb==='Site e-commerce')s+=15;else if(presenceWeb==='Site vitrine')s+=8;else if(presenceWeb==='Réseaux seulement')s+=4;
+  if(baseContacts==='Oui, utilisée régulièrement')s+=10;else if(baseContacts==='Oui, rarement exploitée')s+=5;
+  if(promesse&&promesse.length>30)s+=8;if(diff&&diff.length>30)s+=10;
+  if(vision&&vision.length>30)s+=9;if(ambition)s+=5;
+  const pct=Math.min(Math.round((s/100)*100),100);
+
+  document.getElementById('r-nom').textContent=nom;
+  const now=new Date();
+  document.getElementById('r-date').textContent='Diagnostic du '+now.toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'})+(prenom?' · '+prenom+' '+nomContact:'');
+  setCercle(pct);
+  addBars([
+    {l:'Communication',p:Math.round((satCom/10)*100),c:'var(--accent)'},
+    {l:'Présence digitale',p:presenceWeb==='Site e-commerce'?90:presenceWeb==='Site vitrine'?60:presenceWeb==='Réseaux seulement'?30:10,c:'var(--accent-soft)'},
+    {l:'Positionnement',p:promesse&&diff?80:promesse||diff?50:20,c:'var(--green)'},
+    {l:'Fidélisation',p:baseContacts==='Oui, utilisée régulièrement'?85:baseContacts==='Oui, rarement exploitée'?40:baseContacts==='Partielle'?20:5,c:'var(--orange)'},
+  ]);
+
+  const ri=document.getElementById('r-identite');
+  addRow(ri,'Secteur',secteur);addRow(ri,'Localisation',ville);addRow(ri,'Ancienneté',anciennete);addRow(ri,'Équipe',taille);addRow(ri,'CA estimé',ca);addRow(ri,'Prix',posPrix);
+  if(activite)addInsight(ri,'📝',activite,'warm');
+  if(promesse)addInsight(ri,'✦','<strong>Promesse :</strong> '+promesse,'warm');
+  if(diff)addInsight(ri,'🏆','<strong>Ce qui vous distingue :</strong> '+diff,'success');
+  else addInsight(ri,'⚠️','La différenciation n\'est pas encore clairement posée. C\'est le premier levier à travailler — elle conditionne tous vos messages.','warning');
+  if(bao)addInsight(ri,'💬','<strong>Le bouche-à-oreille dit :</strong> '+bao,'warm');
+  if(clientIdeal)addInsight(ri,'👤','<strong>Client idéal :</strong> '+clientIdeal,'warm');
+  if(pbClient)addInsight(ri,'🎯','<strong>Son problème :</strong> '+pbClient,'warm');
+  if(objections)addInsight(ri,'🤔','<strong>Objections à traiter :</strong> '+objections,'warning');
+
+  const rd=document.getElementById('r-digital');
+  addRow(rd,'Présence web',presenceWeb);addRow(rd,'CA digital',partDigital);addRow(rd,'Zone',marchGeo);
+  if(presenceWeb==='Aucune')addInsight(rd,'🔴','Aucune présence en ligne. Priorité absolue.','danger');
+  if(presenceWeb==='Google Maps')addInsight(rd,'⚠️','Seule une fiche Google Maps — un site vitrine simple doublerait votre crédibilité.','warning');
+  if(partDigital==='0%'||partDigital==='<10%')addInsight(rd,'📈','Moins de 10% du CA vient du digital. Potentiel de croissance important avec un investissement ciblé.','warm');
+  if(pubPayante==='Non')addInsight(rd,'💡','Pas de publicité payante. Les ads (Meta, Google) servent à acquérir de nouveaux clients que le bouche-à-oreille n\'atteint pas — c\'est le levier d\'acquisition, complémentaire à l\'email qui lui fidélise.','warm');
+  if(pubPayante==='Essayé sans succès')addInsight(rd,'⚠️','Expérience négative avec la pub payante. La plupart du temps, c\'est une question de ciblage ou de message — pas d\'outil.','warning');
+
+  const rc=document.getElementById('r-com');
+  if(canauxCom.length>0){const tags=document.createElement('div');tags.style.marginBottom='10px';canauxCom.forEach(c=>{const t=document.createElement('span');t.className='tag-pill pill-warm';t.textContent=c;tags.appendChild(t);});rc.appendChild(tags);}
+  addRow(rc,'Satisfaction',satCom+' / 10');addRow(rc,'Budget mensuel',budget);
+  if(manqueCom)addInsight(rc,'💡','<strong>Manque identifié :</strong> '+manqueCom,'warm');
+  if(arretCom==='On disparaît')addInsight(rc,'🔴','Si vous stoppez toute communication, vous disparaissez. C\'est un signal fort : l\'objectif à terme est de construire des actifs (email, SEO, fidélisation) qui travaillent même quand vous vous arrêtez.','danger');
+  if(canauxCom.includes('Aucun'))addInsight(rc,'🔴','Aucune communication active. C\'est un risque, mais aussi une opportunité : le moindre effort aura un impact immédiat.','danger');
+  if(objectifs)addInsight(rc,'🎯','<strong>Objectifs 12 mois :</strong> '+objectifs,'warm');
+  if(freins)addInsight(rc,'🧱','<strong>Ce qui freine :</strong> '+freins,'warning');
+
+  const re=document.getElementById('r-email');
+  addRow(re,'Base contacts',baseContacts);
+  if(baseContacts==='Non')addInsight(re,'🔴','Aucune base email. C\'est l\'actif marketing le plus précieux — vos abonnés vous appartiennent, contrairement à vos followers réseaux. Construire une liste est la première chose à mettre en place.','danger');
+  else if(baseContacts==='Oui, rarement exploitée'){
+    addInsight(re,'💡','Vous avez une base email mais ne l\'utilisez pas. C\'est de la croissance dormante — les clients qui ont déjà acheté sont les plus faciles à convaincre de racheter.','warning');
+    addInsight(re,'📦','<strong>Opportunité panier abandonné :</strong> si vous vendez en ligne, une séquence de 2-3 emails peut récupérer 10 à 30% des commandes non finalisées, sans dépenser un euro en acquisition.','warm');
+  } else if(baseContacts==='Oui, utilisée régulièrement')addInsight(re,'✅','Base email active — votre actif le plus stable. Vérifiez que la séquence post-achat et la fidélisation sont bien en place.','success');
+  addInsight(re,'📧','Email et publicité payante ne jouent pas le même rôle : les ads acquièrent de nouveaux clients, l\'email fidélise ceux que vous avez déjà. Les deux se complètent, ils ne se remplacent pas.','warm');
+  if(commentaire)addInsight(re,'📝',commentaire,'warm');
+
+  const ro=document.getElementById('r-opps');
+  const opps=[];
+  if(!diff||diff.length<30)opps.push({p:'🔥 PRIORITÉ 1',t:'Clarifier le positionnement',d:'Ce qui vous rend unique doit tenir en une phrase. C\'est la base de tout le reste.',c:'var(--red)'});
+  if(presenceWeb==='Aucune'||presenceWeb==='Google Maps')opps.push({p:'🔥 PRIORITÉ',t:'Créer un site web',d:'Votre offre, votre histoire, un moyen de vous contacter.',c:'var(--red)'});
+  if(baseContacts==='Non'||baseContacts==='Partielle')opps.push({p:'⚡ QUICK WIN',t:'Constituer une base email',d:'Un formulaire + une raison de s\'inscrire. L\'actif le plus durable.',c:'var(--orange)'});
+  if(baseContacts==='Oui, rarement exploitée')opps.push({p:'⚡ QUICK WIN',t:'Réactiver la base email dormante',d:'Un email par mois suffit. La séquence de bienvenue et le post-achat en premier.',c:'var(--orange)'});
+  if(pubPayante==='Non'||pubPayante==='Essayé sans succès')opps.push({p:'📈 ACQUISITION',t:'Tester la publicité payante',d:'Meta Ads ciblé sur votre zone — budget maîtrisé, résultats mesurables.',c:'var(--green)'});
+  if(arretCom==='On disparaît')opps.push({p:'🛡️ RÉSILIENCE',t:'Construire des actifs marketing durables',d:'SEO, email, fidélisation : des canaux qui fonctionnent même quand vous stoppez de publier.',c:'var(--accent)'});
+  if(!clientIdeal||clientIdeal.length<40)opps.push({p:'🧭 FONDATION',t:'Définir le persona précis',d:'Sans client idéal clair, votre communication touche tout le monde — donc personne.',c:'var(--orange)'});
+  if(opps.length===0)addInsight(ro,'✅','Situation solide — les opportunités se situent dans l\'optimisation et la scalabilité de ce qui fonctionne.','success');
+  else opps.forEach(o=>addOpp(ro,o.p,o.t,o.d,o.c));
+
+  const rp=document.getElementById('r-etapes');
+  const etapes=[];
+  if(!diff||diff.length<30)etapes.push({t:'Travailler la différenciation',d:'1h avec vos meilleurs clients pour identifier ce qui vous rend vraiment unique.'});
+  if(presenceWeb==='Aucune'||presenceWeb==='Google Maps')etapes.push({t:'Créer un site vitrine',d:'Votre offre, votre histoire, un moyen de vous contacter. Simple et professionnel.'});
+  if(baseContacts==='Non'||baseContacts==='Partielle')etapes.push({t:'Lancer la collecte email',d:'Un formulaire + une raison de s\'inscrire. L\'actif le plus important à construire.'});
+  if(baseContacts==='Oui, rarement exploitée')etapes.push({t:'Envoyer un premier email de réactivation',d:'Une anecdote, une actu, une offre. Un seul envoi suffit pour repartir.'});
+  if(satCom<=5)etapes.push({t:'Choisir un canal principal et s\'y tenir',d:'Mieux vaut exceller sur un canal que d\'être médiocre sur cinq.'});
+  etapes.push({t:'Réserver un appel diagnostic',d:'30 minutes pour faire le point ensemble et repartir avec un plan d\'action concret.'});
+  etapes.forEach((e,i)=>addEtape(rp,i+1,e.t,e.d));
+  if(email)addInsight(rp,'📬','Contact : '+[prenom+' '+nomContact,email].filter(Boolean).join(' · '),'warm');
+}
+
+function genererPilote(){
+  const nom=v('p_nom')||'Prospect';
+  const secteur=v('p_secteur'),ville=v('p_ville'),dirigeant=v('p_dirigeant'),ca=v('p_ca');
+  const site=v('p_site'),linkedin=v('p_linkedin'),instagram=v('p_instagram'),facebook=v('p_facebook'),youtube=v('p_youtube'),metaads=v('p_metaads'),lp=v('p_lp');
+  const etatSite=getRadio('p_etat_site'),etatRs=getRadio('p_etat_rs'),etatAds=getRadio('p_etat_ads'),etatAvis=getRadio('p_etat_avis');
+  const obs=v('p_obs'),levier=getRadio('p_levier');
+
+  const scores={
+    site:etatSite==='Bon'?90:etatSite==='Correct'?60:etatSite==='Faible'?30:5,
+    rs:etatRs==='Actif'?85:etatRs==='Irrégulier'?45:etatRs==='Inactif'?20:5,
+    ads:etatAds==='Fort'?90:etatAds==='Présent'?60:etatAds==='Faible'?25:5,
+    avis:etatAvis==='Excellent'?95:etatAvis==='Bon'?70:etatAvis==='Faible'?35:10,
+  };
+  const avg=Math.round((scores.site+scores.rs+scores.ads+scores.avis)/4);
+
+  document.getElementById('r-nom').textContent=nom+(dirigeant?' — '+dirigeant:'');
+  const now=new Date();
+  document.getElementById('r-date').textContent='Analyse du '+now.toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'})+(secteur?' · '+secteur:'')+(ville?' · '+ville:'');
+  setCercle(avg);
+  addBars([
+    {l:'Site web',p:scores.site,c:'var(--accent)'},
+    {l:'Réseaux sociaux',p:scores.rs,c:'var(--accent-soft)'},
+    {l:'Publicité',p:scores.ads,c:'var(--green)'},
+    {l:'Réputation',p:scores.avis,c:'var(--orange)'},
+  ]);
+
+  const ri=document.getElementById('r-identite');
+  addRow(ri,'Secteur',secteur);addRow(ri,'Localisation',ville);addRow(ri,'CA estimé',ca);
+
+  const rd=document.getElementById('r-digital');
+  addLink(rd,'Site web',site,'🌐');addLink(rd,'LinkedIn',linkedin,'💼');addLink(rd,'Instagram',instagram,'📷');
+  addLink(rd,'Facebook',facebook,'📘');addLink(rd,'YouTube',youtube,'▶️');addLink(rd,'Meta Ads',metaads,'📣');addLink(rd,'Landing page',lp,'🎯');
+  if(!site)addMissing(rd,'🌐 Site web');
+  if(!linkedin&&!instagram&&!facebook)addMissing(rd,'📱 Réseaux sociaux');
+  if(!metaads)addMissing(rd,'📣 Publicité Meta');
+  addRow(rd,'Site web',etatSite||'Non évalué');addRow(rd,'Réseaux',etatRs||'Non évalué');addRow(rd,'Publicité',etatAds||'Non évalué');addRow(rd,'Réputation',etatAvis||'Non évalué');
+  if(etatSite==='Absent'||etatSite==='Faible')addInsight(rd,'⚠️','Site absent ou inefficace — premier point de contact raté.','warning');
+  if(etatRs==='Inactif'||etatRs==='Absent')addInsight(rd,'📱','Présence réseaux inexistante ou abandonnée.','warning');
+  if(etatAds==='Absent')addInsight(rd,'💡','Aucune publicité payante détectée — pas de levier d\'acquisition actif visible.','warm');
+
+  const rc=document.getElementById('r-com');
+  if(obs)addInsight(rc,'🔍','<strong>Observations :</strong> '+obs,'warm');
+  if(levier)addInsight(rc,'🎯','<strong>Levier prioritaire identifié :</strong> '+levier,'success');
+  if(etatAvis==='Absent'||etatAvis==='Faible')addInsight(rc,'⭐','Réputation faible en ligne — les avis Google sont souvent le premier réflexe d\'un prospect avant d\'appeler.','warning');
+  if(etatAvis==='Excellent'||etatAvis==='Bon')addInsight(rc,'✅','Bonne réputation — actif fort à exploiter dans toutes les communications (emails, pubs, site).','success');
+
+  const re=document.getElementById('r-email');
+  if(!site)addInsight(re,'🔴','Pas de site visible — probablement pas de capture email non plus. Construire une liste est l\'actif le plus durable.','danger');
+  else addInsight(re,'📧','À vérifier au call : ont-ils une base email ? L\'utilisent-ils ? Ads = acquisition, email = fidélisation. Les deux sont nécessaires et complémentaires.','warm');
+  addInsight(re,'📦','Si e-commerce : vérifier si une séquence panier abandonné est en place — 10 à 30% de commandes récupérables sans coût d\'acquisition supplémentaire.','warm');
+
+  const ro=document.getElementById('r-opps');
+  const opps=[];
+  if(etatSite==='Absent'||etatSite==='Faible')opps.push({p:'🔥 PRIORITÉ',t:'Refaire ou créer le site web',d:'Premier point de contact — clair, rapide, mobile, orienté conversion.',c:'var(--red)'});
+  if(etatRs==='Inactif'||etatRs==='Absent')opps.push({p:'⚡ QUICK WIN',t:'Relancer les réseaux sociaux',d:'Une ligne éditoriale simple et une fréquence tenue. L\'abandon est pire que l\'absence.',c:'var(--orange)'});
+  if(etatAds==='Absent'||etatAds==='Faible')opps.push({p:'📈 ACQUISITION',t:'Lancer ou optimiser les Meta Ads',d:'Ciblage local, budget test maîtrisé. Mesurer avant de scaler.',c:'var(--green)'});
+  if(etatAvis==='Absent'||etatAvis==='Faible')opps.push({p:'⭐ RÉPUTATION',t:'Travailler les avis Google',d:'Demander activement après chaque bonne expérience. Répondre à tous.',c:'var(--accent)'});
+  opps.push({p:'📧 FIDÉLISATION',t:'Vérifier la stratégie email',d:'Base constituée ? Séquence post-achat ? Newsletter mensuelle ? Souvent le levier le plus sous-exploité.',c:'var(--orange)'});
+  opps.forEach(o=>addOpp(ro,o.p,o.t,o.d,o.c));
+
+  const rp=document.getElementById('r-etapes');
+  addEtape(rp,1,'Premier appel de 20 minutes','Confirmer les observations, comprendre les objectifs, valider le levier prioritaire.');
+  addEtape(rp,2,'Proposition adaptée','Ce qu\'on met en place, dans quel ordre, pour quel budget — transparent et sans surprise.');
+  addEtape(rp,3,'Démarrage sur le levier prioritaire',levier?'Commencer par : '+levier+'.':'Selon ce qui a été validé ensemble.');
+}
+
+// Init
+buildBar();
+document.addEventListener('change',function(e){
+  if(e.target.type==='radio'||e.target.type==='checkbox'){
+    const container=e.target.closest('.options');if(!container)return;
+    if(e.target.type==='radio'){container.querySelectorAll('.opt').forEach(o=>o.classList.remove('sel'));e.target.closest('.opt').classList.add('sel');}
+    else{e.target.closest('.opt').classList.toggle('sel',e.target.checked);}
+  }
+});
 </script>
 </body>
 </html>
